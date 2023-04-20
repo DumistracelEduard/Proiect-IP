@@ -1,0 +1,25 @@
+package ip.studentplatform.entity;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@ToString
+@Setter
+@Getter
+@Entity
+@Table(name = "materie")
+public class Materie {
+    @Id
+    @Column(name = "id_mat")
+    int id_mat;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_prof")
+    Professor professor;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idgrade")
+    Grade grade;
+}
