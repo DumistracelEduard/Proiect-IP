@@ -12,17 +12,7 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name = "professor")
-public class Professor {
-    @Id
-    @Column(name = "id_prof")
-    int id_prof;
-
-    @Column(name = "username")
-    String username;
-
-    @Column(name = "password")
-    String password;
-
+public class Professor extends User{
     @Column(name = "lastName")
     String lastName;
 

@@ -13,17 +13,7 @@ import lombok.ToString;
 @Getter
 @Entity
 @Table(name = "admin")
-public class Admin {
-    @Id
-    @Column(name = "id_admin")
-    int id_admin;
-
-    @Column(name =  "username")
-    String username;
-
-    @Column(name = "password")
-    String password;
-
+public class Admin extends User {
     @Column(name = "email")
     String email;
 }

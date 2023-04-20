@@ -16,7 +16,7 @@ public class Materie {
     int id_mat;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_prof")
+    @JoinColumn(name = "id")
     Professor professor;
 
     @OneToOne(cascade = CascadeType.ALL)
