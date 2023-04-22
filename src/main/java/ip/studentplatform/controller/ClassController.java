@@ -1,8 +1,7 @@
-package ip.studentplatform.Controller;
+package ip.studentplatform.controller;
 
-import ip.studentplatform.Service.ClassService;
+import ip.studentplatform.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

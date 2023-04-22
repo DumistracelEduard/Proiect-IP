@@ -1,4 +1,4 @@
-package ip.studentplatform.Repository;
+package ip.studentplatform.repository;
 
 public interface ICrudRepositoryClass {
 }

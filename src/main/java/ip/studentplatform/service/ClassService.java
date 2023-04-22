@@ -1,6 +1,6 @@
-package ip.studentplatform.Service;
+package ip.studentplatform.service;
 
-import ip.studentplatform.Repository.ICrudRepositoryClass;
+import ip.studentplatform.repository.ICrudRepositoryClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

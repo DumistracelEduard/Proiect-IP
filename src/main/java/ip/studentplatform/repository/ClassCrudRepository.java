@@ -1,4 +1,4 @@
-package ip.studentplatform.Repository;
+package ip.studentplatform.repository;
 
 import ip.studentplatform.entity.User;
 import org.springframework.data.repository.CrudRepository;
