@@ -1,16 +1,16 @@
 package ip.studentplatform.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @ToString
 @Setter
 @Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "student")
 public class Student extends User{
     @Column(name = "lastName")
@@ -21,9 +21,6 @@ public class Student extends User{
 
     @Column(name = "address")
     String address;
-
-    @Column(name = "role")
-    String role;
 
     @Column(name = "serie")
     String serie;
@@ -41,4 +38,18 @@ public class Student extends User{
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "idgrade")
     List<Grade> grade;
+
+    public Student(int id_user, String password, String username,
+                   String lastName, String firstName, String address,
+                   String role, String serie, String grupa, String email) {
+        super(password, username, role);
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.address = address;
+        this.serie = serie;
+        this.grupa = grupa;
+        this.email = email;
+        this.materies = new ArrayList<>();
+        this.grade = new ArrayList<>();
+    }
 }
