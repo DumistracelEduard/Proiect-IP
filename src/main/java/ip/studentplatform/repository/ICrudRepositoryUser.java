@@ -11,4 +11,7 @@ public interface ICrudRepositoryUser extends CrudRepository<User, Integer>{
 
     @Query("SELECT c FROM Professor c WHERE c.username like %?1")
     public User getProfessorByUsername(@Param("username") String username);
+
+    @Query("SELECT c FROM Admin c WHERE c.username like %?1")
+    public User getAdminByUsername(@Param("username") String username);
 }

@@ -36,6 +36,9 @@ public class UserService implements UserDetailsService {
         if(user == null) {
             user = iCrudRepositoryUser.getProfessorByUsername(username);
         }
+        if (user == null){
+            user = iCrudRepositoryUser.getAdminByUsername(username);
+        }
         if (user == null) {
             throw new UsernameNotFoundException("Not found User");
         }

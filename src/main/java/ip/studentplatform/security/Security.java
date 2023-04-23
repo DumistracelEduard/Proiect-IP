@@ -43,14 +43,14 @@ public class Security {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/user/upload-customers-data").permitAll()
+                .requestMatchers("/user/upload-customers-data").authenticated()
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/user/login").permitAll();
+                .permitAll();
         return http.build();
     }
 }
