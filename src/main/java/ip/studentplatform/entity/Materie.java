@@ -15,6 +15,9 @@ public class Materie {
     @Column(name = "id_mat")
     int id_mat;
 
+    @Column(name = "name")
+    String nameMaterie;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     Professor professor;
