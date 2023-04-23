@@ -49,7 +49,8 @@ public class Security {
                 .requestMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().permitAll();
+                .formLogin()
+                .loginPage("/user/login").permitAll();
         return http.build();
     }
 }
