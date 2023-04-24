@@ -1,5 +1,8 @@
 package ip.studentplatform.controller;
 
+import ip.studentplatform.entity.Professor;
+import ip.studentplatform.entity.User;
+import ip.studentplatform.service.EmailSenderService;
 import ip.studentplatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -16,10 +20,17 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PreAuthorize("hasAuthority('admin')")
+    @Autowired
+    private EmailSenderService senderService;
+
     @PostMapping("/upload-customers-data")
     public ResponseEntity<?> uploadCustomersData(@RequestParam("file") MultipartFile file){
-        this.userService.saveCustomersToDatabase(file);
+        List<User> users = this.userService.saveCustomersToDatabase(file);
+        for(User user:users) {
+            senderService.sendSimpleEmail(user.getEmail(),
+                    "This is email body",
+                    user.getUsername() +" "+user.getPassword());
+        }
         return ResponseEntity
                 .ok(Map.of("Message" , " Customers data uploaded and saved to database successfully"));
     }

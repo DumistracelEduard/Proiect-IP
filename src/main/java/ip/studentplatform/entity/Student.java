@@ -28,9 +28,6 @@ public class Student extends User{
     @Column(name = "grupa")
     String grupa;
 
-    @Column(name = "email")
-    String email;
-
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_mat")
     List<Materie> materies;
@@ -42,13 +39,12 @@ public class Student extends User{
     public Student(int id_user, String password, String username,
                    String lastName, String firstName, String address,
                    String role, String serie, String grupa, String email) {
-        super(password, username, role);
+        super(password, username, role, email);
         this.lastName = lastName;
         this.firstName = firstName;
         this.address = address;
         this.serie = serie;
         this.grupa = grupa;
-        this.email = email;
         this.materies = new ArrayList<>();
         this.grade = new ArrayList<>();
     }

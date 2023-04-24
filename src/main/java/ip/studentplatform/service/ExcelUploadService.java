@@ -7,7 +7,10 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -17,8 +20,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
+@Component
 public class ExcelUploadService {
+
     List<User> usersList;
+
+    @Autowired
+    private EmailSenderService senderService;
 
     public static boolean isValidExcelFile(MultipartFile file) {
         return Objects.equals(file.getContentType(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
@@ -29,7 +37,6 @@ public class ExcelUploadService {
             this.usersList = new ArrayList<>();
             XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
             XSSFSheet sheet = workbook.getSheetAt(0);
-            int rowIndex = 0;
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             for (Row row : sheet) {
                 Iterator<Cell> cellIterator = row.iterator();
@@ -53,7 +60,6 @@ public class ExcelUploadService {
                             case 3 -> userProf.setPassword(encoder.encode(cell.getStringCellValue()));
                             case 4 -> userProf.setUsername(cell.getStringCellValue());
                             default -> {
-                                System.out.println("AICI2");
                             }
                         }
                         userProf.setRole("profesor");

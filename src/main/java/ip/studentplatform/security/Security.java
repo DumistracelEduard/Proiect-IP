@@ -16,7 +16,6 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class Security {
     @Bean
     public UserDetailsService userDetailsService() {
@@ -46,8 +45,7 @@ public class Security {
                 .requestMatchers("/user/upload-customers-data").permitAll()
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers("/class/here").permitAll()
                 .and()
                 .formLogin().permitAll();
         return http.build();
