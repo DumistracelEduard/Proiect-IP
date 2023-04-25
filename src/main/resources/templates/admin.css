@@ -1,0 +1,111 @@
+#image1 {
+    margin-top:-150px;
+    max-width:400px;
+    max-height:20%;
+    float:right;
+}
+
+.mandatory{color:red;}
+
+.addfile1{
+    margin-left:790px;
+    margin-top: -150px;
+}
+
+.addfile3{
+    margin-left:790px;
+    margin-top: -150px;
+    color: #0441aa;
+}
+
+.Incarcare{
+    color: rgb(10, 0, 1);
+    padding: 10px;
+    margin-right:70px;
+    background: rgb(59, 162, 235);
+    border: 0px solid rgb(254, 254, 254);
+    margin-left:790px;
+    margin-top: -150px;
+}
+
+.container {
+    margin-right:550px;
+    margin-left: 50px;
+    margin-top: -3px;
+    border-radius: 1px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.Platform{
+    top: -100px;
+    align-self: auto;
+}
+
+body {
+font-family: 'Lato', sans-serif;
+  background-image: linear-gradient(to top, #0000ff 0%, #00ffff 100%);
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+    margin-right:550px;
+    margin-top: 150px;
+    margin-left: 50px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+
+input[type=text], select, textarea {
+width: 90%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+resize: vertical;
+}
+
+button[type=Salvare] {
+width: 50%;
+background-color: #0441aa;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+::-webkit-file-upload-button{
+    cursor: pointer;
+            margin-top: 25px;
+            display: inline-block;
+            padding: 6px;
+            padding-right: 29px;
+            padding-left: 29px;
+            transition: all 1s ease;
+            color: rgb(35, 17, 17);
+            text-transform: capitalize;
+            font-size: 15px;
+            z-index: 1;
+            position: relative;
+            border-radius: 25px;
+            background-color: transparent;
+            border: 2px solid rgb(0, 17, 210);
+}
+
+button[type=Trimitere] {
+    width: 50%;
+    background-color: #0441aa;
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }

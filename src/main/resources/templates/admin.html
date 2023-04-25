@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./admin.css">
+  	
+<title>
+Admin
+</title>
+
+</head>
+<body>
+
+
+  <div class="image">
+    <img id="image1" src="poli4.jpg" >
+  </div>
+
+  <div class="button">
+    <form action="/action_page.php">
+
+        <div class="field">
+            <div class="fieldname">Utilizator<span class="mandatory">*</span></div></div>
+              <input type="text" id="lname" name="Utilizator" placeholder="Utilizator" required>
+    </form>
+ </div>
+
+<div class="container">
+  <form action="/action_page.php">
+
+    <div class="field">
+        <div class="fieldname">Actiune<span class="mandatory">*</span></div></div>
+   <select id="actiune" name="actiune" required>
+      <option value="actiune1">Inrolare</option>
+      <option value="Actiune2">Inregistrare</option>
+      <option value="Actiune3">Aprobare nota</option>
+    </select>
+
+    <div class="field">
+        <div class="fieldname">Materie</span></div></div>
+    
+    <select id="Materie" name="Materie">
+      <option value="var0">--Alege--</option>
+      <option value="var1">Proiectare pe microprocesoare</option>
+      <option value="var2">Sisteme de operare</option>
+      <option value="var3">Baze de date</option>
+      <option value="var4">Arhitectura sistemelor de calcul</option>
+      <option value="var5">Ingineria programelor</option>
+    </select>
+
+    
+    <button type="Salvare">Salveaza</button>
+  </form>
+</div>
+
+
+<div class="addfile">
+    <form action="/action_page.php">
+        <div class="addfile1">
+            <label for="myfile">Select a file:</label>
+            <input type="file" id="myfile" name="myfile" accept=".xsls" ><br><br>
+            <button formaction="file_success.html" type="Trimitere">Trimite</button>
+        </div>
+    </form>
+</div>
+
+<div class="Incarcare">
+    &#9432; Incarcare fisier inrolare studenti si profesori
+</div>
+
+<div style="position:relative; left:80px; top:-350px; color:white">
+  <top>
+    <h1>
+      @StudentPlatform<top>
+    </h1>
+    <h4>
+      Platforma catalog online
+    </h4>
+</top>
+</div>
+
+</body>
+</html>
