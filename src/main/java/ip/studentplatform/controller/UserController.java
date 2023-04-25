@@ -42,5 +42,10 @@ public class UserController {
         return model;
     }
 
+    @GetMapping("/successful")
+    public ModelAndView successful() {
+        ModelAndView model = new ModelAndView("login_success.html");
+        return model;
+    }
 
 }

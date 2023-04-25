@@ -57,11 +57,12 @@ public class ExcelUploadService {
                             case 0 -> userProf.setFirstName(cell.getStringCellValue());
                             case 1 -> userProf.setLastName(cell.getStringCellValue());
                             case 2 -> userProf.setEmail(cell.getStringCellValue());
-                            case 3 -> userProf.setPassword(encoder.encode(cell.getStringCellValue()));
+                            case 3 -> userProf.setPassword(new BCryptPasswordEncoder().encode(cell.getStringCellValue()));
                             case 4 -> userProf.setUsername(cell.getStringCellValue());
                             default -> {
                             }
                         }
+
                         userProf.setRole("profesor");
                         userProf.setMateries(new ArrayList<>());
 
@@ -74,7 +75,7 @@ public class ExcelUploadService {
                             case 0 -> userStudent.setFirstName(cell.getStringCellValue());
                             case 1 -> userStudent.setLastName(cell.getStringCellValue());
                             case 2 -> userStudent.setEmail(cell.getStringCellValue());
-                            case 3 -> userStudent.setPassword(encoder.encode(cell.getStringCellValue()));
+                            case 3 -> userStudent.setPassword(new BCryptPasswordEncoder().encode(cell.getStringCellValue()));
                             case 4 -> userStudent.setUsername(cell.getStringCellValue());
                             case 5 -> userStudent.setAddress(cell.getStringCellValue());
                             case 6 -> userStudent.setGrupa(cell.getStringCellValue());

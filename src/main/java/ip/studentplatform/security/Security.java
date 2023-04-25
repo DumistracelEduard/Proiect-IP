@@ -43,11 +43,12 @@ public class Security {
         http.csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/user/upload-customers-data").permitAll()
+                .requestMatchers("/user/successful").permitAll()
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/class/here").permitAll()
                 .and()
-                .formLogin().permitAll();
+                .formLogin().defaultSuccessUrl("/user/successful", true).permitAll();
         return http.build();
     }
 }

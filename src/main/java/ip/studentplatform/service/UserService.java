@@ -49,8 +49,4 @@ public class UserService implements UserDetailsService {
 
         return new MyUserDetails(user);
     }
-
-    public List<Professor> getAll() {
-        return iCrudRepositoryUser.getAll();
-    }
 }

@@ -37,6 +37,7 @@ public class StudentplatformApplication {
 		props.put("mail.debug", "true");
 		props.setProperty("mail.smtp.starttls.enable", "true");
 		props.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
+		props.put("mail.smtp.ssl.trust", "*");
 
 		return mailSender;
 	}
