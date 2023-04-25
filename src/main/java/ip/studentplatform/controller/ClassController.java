@@ -6,6 +6,7 @@ import ip.studentplatform.service.ClassService;
 import ip.studentplatform.service.EmailSenderService;
 import ip.studentplatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,13 +24,7 @@ public class ClassController {
     @Autowired
     private EmailSenderService senderService;
 
-    @GetMapping("/here")
-    public void email() {
-        senderService.sendSimpleEmail("eduard.costin8@gmail.com",
-                "This is email body",
-                "This is email subject");
-    }
-
+    @PreAuthorize("hasAuthority('admin')")
     @PutMapping("/addStudent")
     public void addStudent(@RequestParam(name = "name") String name, @RequestParam(name = "nameMaterie") String nameMaterie) {
         List<Materie> materies = this.classService.findListMaterie(name);
@@ -43,6 +38,7 @@ public class ClassController {
         this.classService.addStudentClass(name, materies);
     }
 
+    @PreAuthorize("hasAuthority('admin')")
     @PutMapping("/addProfessorToClass")
     public void addProfessor(@RequestParam(name = "name") String name, @RequestParam(name = "numeMaterie") String nameMaterie) {
         Materie materie = this.classService.getMaterie(nameMaterie);

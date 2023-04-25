@@ -22,7 +22,7 @@ public class UserController {
 
     @Autowired
     private EmailSenderService senderService;
-
+    @PreAuthorize("hasAuthority('admin')")
     @PostMapping("/upload-customers-data")
     public ResponseEntity<?> uploadCustomersData(@RequestParam("file") MultipartFile file){
         List<User> users = this.userService.saveCustomersToDatabase(file);
@@ -35,16 +35,16 @@ public class UserController {
                 .ok(Map.of("Message" , " Customers data uploaded and saved to database successfully"));
     }
 
-    @GetMapping("/login")
-    public ModelAndView login() {
-        ModelAndView model = new ModelAndView("login.html");
-        return model;
-    }
-
-    @GetMapping("/successful")
-    public ModelAndView successful() {
-        ModelAndView model = new ModelAndView("login_success.html");
-        return model;
-    }
+//    @GetMapping("/login")
+//    public ModelAndView login() {
+//        ModelAndView model = new ModelAndView("login.html");
+//        return model;
+//    }
+//
+//    @GetMapping("/successful")
+//    public ModelAndView successful() {
+//        ModelAndView model = new ModelAndView("login_success.html");
+//        return model;
+//    }
 
 }

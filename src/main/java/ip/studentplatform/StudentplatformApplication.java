@@ -1,5 +1,7 @@
 package ip.studentplatform;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import ip.studentplatform.service.EmailSenderService;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import java.util.Properties;
 
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title="StudentplatformApplication"))
 public class StudentplatformApplication {
 
 	public static void main(String[] args) {
