@@ -1,30 +1,39 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Login Page</title>
+  	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./login.css">
+
+<title>
+StudentPlatform
+</title>
+
 </head>
-<body onload='document.f.username.focus();'>
-<hr />
-Custom form
-<hr />
-<h3>Login with Username and Password</h3>
-<form name='f' action='${loginUrl}' method='POST'>
-  <table>
-    <tr>
-      <td>User:</td>
-      <td><input type='text' name='username' value=''></td>
-    </tr>
-    <tr>
-      <td>Password:</td>
-      <td><input type='password' name='password' /></td>
-    </tr>
-    <tr>
-      <td colspan='2'><input name="submit" type="submit"
-                             value="Login" /></td>
-    </tr>
-    </tr>
-    <input type="hidden" name="${_csrf.parameterName}"
-           value="${_csrf.token}" />
-  </table>
-</form>
+<body>
+
+
+  <div class="image">
+    <img id="image1" src="poli3.jpg" >
+  </div>
+
+<div>
+   <form action="/action_page.php">
+    
+    <input type="text" id="fname" name="firstname" placeholder="Adresă E-Mail">
+
+    <input type="text" id="lname" name="lastname" placeholder="Parolă">
+
+
+<button onClick="location.href='login_success.html'" type="button">Login</button>
+
+   <a href="#">Schimbă parola</a>
+
+	
+
+  </form>
+</div>
+
+
 </body>
 </html>
