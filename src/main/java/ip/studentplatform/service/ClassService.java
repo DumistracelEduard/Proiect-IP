@@ -1,6 +1,7 @@
 package ip.studentplatform.service;
 
 import ip.studentplatform.entity.Materie;
+import ip.studentplatform.entity.Professor;
 import ip.studentplatform.repository.ICrudRepositoryClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,4 +24,9 @@ public class ClassService {
     public Materie getMaterie(String name) {
         return this.iCrudRepositoryClass.getMaterie(name);
     }
+
+    public void updateMaterie(int id, Professor professor) {
+        this.iCrudRepositoryClass.updateMaterie(id, professor);
+    }
+
 }

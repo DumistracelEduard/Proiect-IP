@@ -12,18 +12,18 @@ body {
 }
 
 #logo {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	top: 0;
-	height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
 }
 
 form {
-	position: absolute;
-	left: 25%;
-	top: 25%;
-	transform: translate(-10%, 65%);
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    transform: translate(-10%, 65%);
 }
 
 input[type=text], select {

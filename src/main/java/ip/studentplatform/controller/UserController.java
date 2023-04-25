@@ -28,13 +28,12 @@ public class UserController {
         List<User> users = this.userService.saveCustomersToDatabase(file);
         for(User user:users) {
             senderService.sendSimpleEmail(user.getEmail(),
-                    "This is email body",
-                    user.getUsername() +" "+user.getPassword());
+                    "StudentPlatform",
+                    "USER: "+ user.getUsername() +"\nPassword:"+user.getInitialPassword());
         }
         return ResponseEntity
                 .ok(Map.of("Message" , " Customers data uploaded and saved to database successfully"));
     }
-
 
     @GetMapping("/login")
     public ModelAndView login() {

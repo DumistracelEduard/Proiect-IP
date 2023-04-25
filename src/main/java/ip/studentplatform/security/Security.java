@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @Configuration
@@ -43,6 +44,9 @@ public class Security {
         http.csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/user/upload-customers-data").permitAll()
+                .requestMatchers("/user/successful").permitAll()
+                .requestMatchers("/class/addProfessorToClass").permitAll()
+                .requestMatchers("/class/addStudent").permitAll()
                 .requestMatchers("/user/successful").permitAll()
                 .and()
                 .authorizeHttpRequests()

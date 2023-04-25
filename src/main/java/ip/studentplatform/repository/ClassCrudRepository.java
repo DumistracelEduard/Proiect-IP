@@ -1,6 +1,7 @@
 package ip.studentplatform.repository;
 
 import ip.studentplatform.entity.Materie;
+import ip.studentplatform.entity.Professor;
 import ip.studentplatform.entity.User;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
@@ -13,12 +14,16 @@ import java.util.List;
 @Transactional
 public interface ClassCrudRepository extends CrudRepository<User, Integer>, ICrudRepositoryClass {
     @Modifying
-    @Query("UPDATE Student u SET u.materies =:materieList WHERE u.firstName =:name")
+    @Query("UPDATE Student u SET u.materies=:materieList WHERE u.firstName=:name")
     int addStudentClass(String name, List<Materie> materieList);
 
-    @Query("SELECT c.materies FROM Student c WHERE c.firstName=: name")
+    @Query("SELECT c.materies FROM Student c WHERE c.firstName=:name")
     List<Materie> getMaterieByName(String name);
 
     @Query("SELECT c FROM Materie c WHERE c.nameMaterie=:name")
     Materie getMaterie(String name);
+
+    @Modifying
+    @Query("UPDATE Materie m SET m.professor=:professor WHERE m.id_mat=:id")
+    int updateMaterie(int id, Professor professor);
 }

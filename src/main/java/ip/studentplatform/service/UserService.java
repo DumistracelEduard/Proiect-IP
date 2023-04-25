@@ -1,5 +1,6 @@
 package ip.studentplatform.service;
 
+import ip.studentplatform.entity.Materie;
 import ip.studentplatform.entity.Professor;
 import ip.studentplatform.repository.ICrudRepositoryUser;
 import ip.studentplatform.entity.MyUserDetails;
@@ -48,5 +49,17 @@ public class UserService implements UserDetailsService {
         }
 
         return new MyUserDetails(user);
+    }
+
+    public Professor findByFirstname(String username) {
+        return (Professor) this.iCrudRepositoryUser.getProfessorByName(username);
+    }
+
+    public void updateProfessor(String username, List<Materie> materies) {
+        this.iCrudRepositoryUser.updateProfessor(username, materies);
+    }
+
+    public List<Materie> findListMaterieProfessor(String name) {
+        return this.iCrudRepositoryUser.getMaterieByNameProfessor(name);
     }
 }
