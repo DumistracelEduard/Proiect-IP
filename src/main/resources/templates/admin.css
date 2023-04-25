@@ -8,24 +8,24 @@
 .mandatory{color:red;}
 
 .addfile1{
-    margin-left:790px;
-    margin-top: -150px;
+    margin-left:65%;
+    margin-top: -12%;
 }
 
 .addfile3{
-    margin-left:790px;
-    margin-top: -150px;
+    margin-left:65%;
+    margin-top: -12%;
     color: #0441aa;
 }
 
 .Incarcare{
     color: rgb(10, 0, 1);
     padding: 10px;
-    margin-right:70px;
+    margin-right:5%;
     background: rgb(59, 162, 235);
     border: 0px solid rgb(254, 254, 254);
-    margin-left:790px;
-    margin-top: -150px;
+    margin-left:65%;
+    margin-top: -12%;
 }
 
 .container {
@@ -38,7 +38,7 @@
 }
 
 .Platform{
-    top: -100px;
+    top: -10%;
     align-self: auto;
 }
 
