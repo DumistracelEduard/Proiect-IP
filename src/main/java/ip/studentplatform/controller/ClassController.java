@@ -43,12 +43,13 @@ public class ClassController {
     public void addProfessor(@RequestParam(name = "name") String name, @RequestParam(name = "numeMaterie") String nameMaterie) {
         Materie materie = this.classService.getMaterie(nameMaterie);
         List<Materie> materies = this.userService.findListMaterieProfessor(name);
-        this.classService.updateMaterie(materie.getId_mat(), this.userService.findByFirstname(name));
+
         for (Materie materieSearch :materies) {
             if(materieSearch.getId_mat() == materie.getId_mat()) {
                 return;
             }
         }
+        this.classService.updateMaterie(materie.getId_mat(), this.userService.findByFirstname(name));
         materies.add(materie);
         System.out.println(materie.getId_mat());
         this.userService.updateProfessor(name, materies);
