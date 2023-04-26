@@ -27,10 +27,14 @@ public class User {
     @Column(name = "initial_password")
     String initialPassword;
 
-    public User(String password, String username, String role, String email) {
+    @Column(name = "cnp")
+    String cnp;
+
+    public User(String password, String username, String role, String email, String cnp) {
         this.password = password;
         this.username = username;
         this.role = role;
         this.email = email;
+        this.cnp = cnp;
     }
 }

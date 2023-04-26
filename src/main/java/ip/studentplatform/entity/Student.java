@@ -38,8 +38,8 @@ public class Student extends User{
 
     public Student(int id_user, String password, String username,
                    String lastName, String firstName, String address,
-                   String role, String serie, String grupa, String email) {
-        super(password, username, role, email);
+                   String role, String serie, String grupa, String email, String cnp) {
+        super(password, username, role, email, cnp);
         this.lastName = lastName;
         this.firstName = firstName;
         this.address = address;

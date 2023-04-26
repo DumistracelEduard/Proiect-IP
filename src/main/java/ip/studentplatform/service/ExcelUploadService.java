@@ -39,6 +39,9 @@ public class ExcelUploadService {
             XSSFSheet sheet = workbook.getSheetAt(0);
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             for (Row row : sheet) {
+                if(row.getZeroHeight()) {
+                    continue;
+                }
                 Iterator<Cell> cellIterator = row.iterator();
                 int cellIndex = 0;
 
@@ -62,6 +65,7 @@ public class ExcelUploadService {
                                 userProf.setPassword(new BCryptPasswordEncoder().encode(cell.getStringCellValue()));
                             }
                             case 4 -> userProf.setUsername(cell.getStringCellValue());
+                            case 5 -> userProf.setCnp(cell.getStringCellValue());
                             default -> {
                             }
                         }
@@ -86,6 +90,7 @@ public class ExcelUploadService {
                             case 5 -> userStudent.setAddress(cell.getStringCellValue());
                             case 6 -> userStudent.setGrupa(cell.getStringCellValue());
                             case 7 -> userStudent.setSerie(cell.getStringCellValue());
+                            case 8 -> userStudent.setCnp(cell.getStringCellValue());
                             default -> {
                             }
                         }

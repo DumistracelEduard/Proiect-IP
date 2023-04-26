@@ -24,8 +24,8 @@ public class Professor extends User{
     List<Materie> materies;
 
     public Professor(int id_user, String password, String username,
-                     String lastName, String firstName, String email, String role) {
-        super(password, username, role, email);
+                     String lastName, String firstName, String email, String role, String cnp) {
+        super(password, username, role, email, cnp);
         this.lastName = lastName;
         this.firstName = firstName;
         this.materies = new ArrayList<>();

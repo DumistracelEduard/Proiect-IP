@@ -20,7 +20,7 @@ public interface ICrudRepositoryUser extends CrudRepository<User, Integer>{
     @Query("SELECT c FROM Professor c WHERE c.username like %?1")
     public User getProfessorByUsername(@Param("username") String username);
 
-    @Query("SELECT c FROM Professor c WHERE c.firstName=:name")
+    @Query("SELECT c FROM Professor c WHERE c.username=:name")
     public User getProfessorByName(@Param("name") String name);
 
     @Query("SELECT c FROM Admin c WHERE c.username like %?1")
@@ -33,6 +33,6 @@ public interface ICrudRepositoryUser extends CrudRepository<User, Integer>{
     @Query("UPDATE Professor u SET u.materies =:materieList WHERE u.firstName=:name")
     int updateProfessor(String name, List<Materie> materieList);
 
-    @Query("SELECT c.materies FROM Professor c WHERE c.firstName=:name")
+    @Query("SELECT c.materies FROM Professor c WHERE c.username=:name")
     List<Materie> getMaterieByNameProfessor(String name);
 }
