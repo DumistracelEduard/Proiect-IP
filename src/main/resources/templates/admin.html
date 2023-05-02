@@ -3,7 +3,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./admin.css">
-
     <title>
         Admin
     </title>
@@ -33,7 +32,7 @@
 </div>
 
 <div id="drop_down">
-    <form>
+    <form id = "manualEnroll">
         <div class="field">
             Actiune<span class="mandatory">*</span>
         </div>
@@ -58,16 +57,18 @@
         </select>
 
         <div style="text-align: center;">
-            <button type="Salvare">Salveaza</button>
+            <button type="Salvare" id = "button1">Salveaza</button>
         </div>
     </form>
 </div>
 
+
 <div id="upload">
     <div class="addfile">
-        <form method="POST" action="/user/upload-customers-data" enctype="multipart/form-data">
+<!--        <form method="POST" action="/user/upload-customers-data" enctype="multipart/form-data">-->
+        <form id = "fileEnroll">
             <label for="file">Selectați un fișier:</label><br>
-            <input type="file" id="file" name="file" accept=".xsls"><br><br>
+            <input type="file" id="file" name="file" accept=".xlsx"><br><br>
             <button formaction="file_success.html" type="Trimitere">Trimite</button>
         </form>
     </div>
@@ -77,6 +78,6 @@
     </div>
 </div>
 
-
+<script src="admin.js"></script>
 </body>
 </html>
