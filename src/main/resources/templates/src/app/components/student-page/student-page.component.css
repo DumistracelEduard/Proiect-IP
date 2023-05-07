@@ -1,0 +1,101 @@
+.image {
+    position:absolute;
+    right:0;
+   	bottom: 0;
+	top:0;
+    
+}
+
+h1 {
+    color:white;
+    margin-left: 10%;
+    margin-top: -5%;
+}
+
+h4 {
+    color: white;
+    font-size: medium;
+    margin-left: 10%;
+}
+
+h3 {
+    color: black;
+    font-size:xx-large;
+    margin-left: 5%;
+}
+
+input[type=text], select {
+ 
+    padding: 8px 60px;
+    margin: 5px 0;
+    border: 1px solid black;
+    box-sizing: border-box;
+    display: flex;
+    margin-left: 40%;
+}
+
+.field {
+    color:black;
+    margin-left: 10%;
+}
+
+
+.container {
+    margin-right:550px;
+    margin-left: 50px;
+    border-radius: 1px;
+    background-color:#f2f2f2;
+    padding: 20px;
+    width: 60%;
+    height: 60%;
+    margin-top: -15%;
+}
+
+
+.warning {
+    color: rgb(10, 0, 1);
+    padding: 10px;
+    width: 25%;
+    background: rgb(59, 162, 235);
+    border: 0px solid rgb(254, 254, 254);
+    margin-left:70%;
+    margin-top: 15%;
+}
+
+
+button[type=catalog] {
+    width: 15%;
+    background-color: #0441aa;
+    color: white;
+    padding: 12px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+
+button[type=date_personale] {
+    width: 15%;
+    background-color: #0441aa;
+    color: white;
+    padding: 12px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 30%;
+    margin-top: 3%;
+}
+
+
+button[type=salvare] {
+    width: 20%;
+    background-color: #0441aa;
+    color: white;
+    padding: 12px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 73%;
+    margin-top: 2%;
+}
