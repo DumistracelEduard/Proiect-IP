@@ -72,4 +72,8 @@ public class UserService implements UserDetailsService {
         }
         return user;
     }
+
+    public List<Student> getStudentList() {
+        return this.iCrudRepositoryUser.getAllStudent();
+    }
 }

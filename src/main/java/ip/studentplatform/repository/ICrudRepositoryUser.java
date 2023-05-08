@@ -2,6 +2,7 @@ package ip.studentplatform.repository;
 
 import ip.studentplatform.entity.Materie;
 import ip.studentplatform.entity.Professor;
+import ip.studentplatform.entity.Student;
 import ip.studentplatform.entity.User;
 import jakarta.transaction.Transactional;
 import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
@@ -35,5 +36,8 @@ public interface ICrudRepositoryUser extends CrudRepository<User, Integer>{
 
     @Query("SELECT c.materies FROM Professor c WHERE c.username=:name")
     List<Materie> getMaterieByNameProfessor(String name);
+
+    @Query("SELECT s FROM Student s")
+    public List<Student> getAllStudent();
 
 }

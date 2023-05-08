@@ -1,6 +1,7 @@
 package ip.studentplatform.controller;
 
 import ip.studentplatform.entity.Professor;
+import ip.studentplatform.entity.Student;
 import ip.studentplatform.entity.User;
 import ip.studentplatform.service.EmailSenderService;
 import ip.studentplatform.service.UserService;
@@ -51,5 +52,10 @@ public class UserController {
 //        ModelAndView model = new ModelAndView("login_success.html");
 //        return model;
 //    }
+
+    @GetMapping("/getListStudents")
+    public List<Student> getStudentsList() {
+        return this.userService.getStudentList();
+    }
 
 }
