@@ -28,6 +28,24 @@ public class Student extends User{
     @Column(name = "grupa")
     String grupa;
 
+    @Column(name = "phoneNumber")
+    String phone;
+
+    @Column(name = "birthDay")
+    String birthDay;
+
+    @Column(name = "iban")
+    String iban;
+
+    @Column(name = "highSchool")
+    String highSchool;
+
+    @Column(name = "dorm")
+    String dorm;
+
+    @Column(name = "room")
+    String room;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_mat")
     List<Materie> materies;
