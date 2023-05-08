@@ -35,16 +35,21 @@ public class UserController {
                 .ok(Map.of("Message" , " Customers data uploaded and saved to database successfully"));
     }
 
+    @GetMapping("/getUser")
+    public User getUserByUsername(@RequestParam(name = "name") String name) {
+        return this.userService.getUser(name);
+    }
+
 //    @GetMapping("/login")
 //    public ModelAndView login() {
 //        ModelAndView model = new ModelAndView("login.html");
 //        return model;
 //    }
 //
-    @GetMapping("/successful")
-    public ModelAndView successful() {
-        ModelAndView model = new ModelAndView("login_success.html");
-        return model;
-    }
+//    @GetMapping("/successful")
+//    public ModelAndView successful() {
+//        ModelAndView model = new ModelAndView("login_success.html");
+//        return model;
+//    }
 
 }

@@ -35,4 +35,5 @@ public interface ICrudRepositoryUser extends CrudRepository<User, Integer>{
 
     @Query("SELECT c.materies FROM Professor c WHERE c.username=:name")
     List<Materie> getMaterieByNameProfessor(String name);
+
 }

@@ -1,10 +1,7 @@
 package ip.studentplatform.service;
 
-import ip.studentplatform.entity.Materie;
-import ip.studentplatform.entity.Professor;
+import ip.studentplatform.entity.*;
 import ip.studentplatform.repository.ICrudRepositoryUser;
-import ip.studentplatform.entity.MyUserDetails;
-import ip.studentplatform.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -61,5 +58,18 @@ public class UserService implements UserDetailsService {
 
     public List<Materie> findListMaterieProfessor(String name) {
         return this.iCrudRepositoryUser.getMaterieByNameProfessor(name);
+    }
+
+    public User getUser(String name) {
+        User user = null;
+
+        user = this.iCrudRepositoryUser.getProfessorByName(name);
+        if(user == null) {
+            user = this.iCrudRepositoryUser.getStudentByUsername(name);
+        }
+        if(user == null) {
+            user = this.iCrudRepositoryUser.getAdminByUsername(name);
+        }
+        return user;
     }
 }
