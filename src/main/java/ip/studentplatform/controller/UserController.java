@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
@@ -58,4 +59,45 @@ public class UserController {
         return this.userService.getStudentList();
     }
 
+    @GetMapping("/addBirthday")
+    public int addBirthday(@RequestParam(name = "birthday") String birthday, Principal principal) {
+        Student student = (Student) this.userService.getUser(principal.getName());
+        return this.userService.addBirthday(birthday, student.getFirstName(), student.getLastName());
+    }
+
+    @GetMapping("/addCnp")
+    public int addCnp(@RequestParam(name = "cnp") String cnp, Principal principal) {
+        Student student = (Student) this.userService.getUser(principal.getName());
+        return this.userService.addCnp(cnp, student.getFirstName(), student.getLastName());
+    }
+
+    @GetMapping("/phoneNumber")
+    public int addPhoneNumber(@RequestParam(name = "phoneNumber") String phoneNumber, Principal principal) {
+        Student student = (Student) this.userService.getUser(principal.getName());
+        return this.userService.addPhoneNumber(phoneNumber, student.getFirstName(), student.getLastName());
+    }
+
+    @GetMapping("/dorm")
+    public int addDorm(@RequestParam(name = "dorm") String dorm, Principal principal) {
+        Student student = (Student) this.userService.getUser(principal.getName());
+        return this.userService.addDorm(dorm, student.getFirstName(), student.getLastName());
+    }
+
+    @GetMapping("/room")
+    public int addCamin(@RequestParam(name = "room") String room, Principal principal) {
+        Student student = (Student) this.userService.getUser(principal.getName());
+        return this.userService.addRoom(room, student.getFirstName(), student.getLastName());
+    }
+
+    @GetMapping("/highSchool")
+    public int addHighSchool(@RequestParam(name = "highSchool") String highSchool, Principal principal) {
+        Student student = (Student) this.userService.getUser(principal.getName());
+        return this.userService.addHighSchool(highSchool, student.getFirstName(), student.getLastName());
+    }
+
+    @GetMapping("/iban")
+    public int addIban(@RequestParam(name = "iban") String iban, Principal principal) {
+        Student student = (Student) this.userService.getUser(principal.getName());
+        return this.userService.addIban(iban, student.getFirstName(), student.getLastName());
+    }
 }

@@ -40,4 +40,31 @@ public interface ICrudRepositoryUser extends CrudRepository<User, Integer>{
     @Query("SELECT s FROM Student s")
     public List<Student> getAllStudent();
 
+    @Modifying
+    @Query("UPDATE Student s SET s.birthDay =:birthday WHERE s.firstName =:firstname and s.lastName =:lastname")
+    int addBirthday(String birthday, String firstname, String lastname);
+
+    @Modifying
+    @Query("UPDATE Student s SET s.cnp =:cnp WHERE s.firstName =:firstname and s.lastName =:lastname")
+    int addCnp(String cnp, String firstname, String lastname);
+
+    @Modifying
+    @Query("UPDATE Student s SET s.phone =:phoneNumber WHERE s.firstName =:firstname and s.lastName =:lastname")
+    int addPhoneNumber(String phoneNumber, String firstname, String lastname);
+
+    @Modifying
+    @Query("UPDATE Student s SET s.dorm =:dorm WHERE s.firstName =:firstname and s.lastName =:lastname")
+    int addDorm(String dorm, String firstname, String lastname);
+
+    @Modifying
+    @Query("UPDATE Student s SET s.room =:room WHERE s.firstName =:firstname and s.lastName =:lastname")
+    int addRoom(String room, String firstname, String lastname);
+
+    @Modifying
+    @Query("UPDATE Student s SET s.highSchool =:highSchool WHERE s.firstName =:firstname and s.lastName =:lastname")
+    int addHighSchool(String highSchool, String firstname, String lastname);
+
+    @Modifying
+    @Query("UPDATE Student s SET s.iban =:iban WHERE s.firstName =:firstname and s.lastName =:lastname")
+    int addIban(String iban, String firstname, String lastname);
 }
