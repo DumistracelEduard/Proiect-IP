@@ -1,20 +1,13 @@
 <div>
-    <form>
-       
-      <input type="text" id="fname" name="user" placeholder="username">
-      <input type="text" id="lname" name="password" placeholder="password">
+  <form method="POST" action="http://localhost:8082/user/login" enctype="multipart/form-data" id="loginForm">
+    <input type="text" id="fname" name="user" placeholder="username">
+    <input type="text" id="lname" name="password" placeholder="password">
 
-     
-        <button class="btn" routerLink="/home">Login</button>
-        
-        <a href="#">Schimbă parola</a>
-        
-      </form>
+    <!--    <button class="btn" routerLink="/home">Login</button>-->
+    <button class="btn">Login</button>
+    <a href="#">Schimbă parola</a>
+  </form>
 
-</div>  
+</div>
 
 <img id="logo" src="/assets/poli4.png">
-    
-
-  
-

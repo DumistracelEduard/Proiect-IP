@@ -1,0 +1,24 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-professor-page',
+  templateUrl: './professor-page.component.html',
+  styleUrls: ['./professor-page.component.css']
+})
+export class ProfessorPageComponent {
+
+  expanded = false;
+
+  showCheckboxes() {
+    const checkboxes = document.getElementById("checkboxes");
+    if (checkboxes != null) {
+      if (!this.expanded) {
+        checkboxes.style.display = "block";
+        this.expanded = true;
+      } else {
+        checkboxes.style.display = "none";
+        this.expanded = false;
+      }
+    }
+  }
+}
