@@ -1,93 +1,98 @@
-<!--<script>-->
-<!--  var expanded = false;-->
 
-<!--  function showCheckboxes() {-->
-<!--    var checkboxes = document.getElementById("checkboxes");-->
-<!--    if (checkboxes != null) {-->
-<!--      if (!expanded) {-->
-<!--        checkboxes.style.display = "block";-->
-<!--        expanded = true;-->
-<!--      } else {-->
-<!--        checkboxes.style.display = "none";-->
-<!--        expanded = false;-->
-<!--      }-->
-<!--    }-->
-<!--  }-->
-<!--</script>-->
 <div style="position:absolute; top: 2%; left: 4%; color:white; font-size: 2.5vmin">
-  <h1>
-    @StudentPlatform
-  </h1>
-  <h4>
-    Platforma catalog online
-  </h4>
+    <h1>
+        @StudentPlatform
+    </h1>
+    <h4>
+        Platforma catalog online
+    </h4>
 </div>
 
 <div style="position:absolute; top: 15%; left: 4%; color:white; font-size: 3.5vmin">
-  <h4>
-    [NUME] [PRENUME] profesor
-  </h4>
+    <h4>
+        [NUME] [PRENUME] profesor
+    </h4>
 </div>
 
-<div style="position:absolute; padding: 10px; left: 60% ;top: 40%; right: -10%;border-radius: 20px; background-color: #aba2a2;
-padding: 10px; width: 7.5%;">
-  Lista studenti
-</div>
 
-<img id="logo" src="./assets/poli4.jpg">
+<img id="logo" src="./assets/poli5.png">
 
 <div id="student_text_box">
-  <form>
-    <div class="field">
-      Utilizator<span class="mandatory">*</span>
-    </div>
-    <input type="text" id="nume" name="Nume" placeholder="Utilizator" required>
-  </form>
+    <form>
+        <div class="field">
+            Utilizator<span class="mandatory">*</span>
+        </div>
+        <input type="text" id="lname" name="Nume" placeholder="Utilizator" required>
+    </form>
 </div>
 
 <div id="materie_text_box">
-  <form>
-    <div class="field">
-      Materie<span class="mandatory">*</span>
-    </div>
-    <input type="text" id="materie" name="Materie" placeholder="Materie" required>
-  </form>
+    <form>
+        <div class="field">
+            Materie<span class="mandatory">*</span>
+        </div>
+        <input type="text" id="lname" name="Materie" placeholder="Materie" required>
+    </form>
 </div>
 
 <div id="nota_text_box">
-  <form>
-    <div class="field">
-      Nota<span class="mandatory">*</span>
-    </div>
-    <input type="text" id="nota" name="Nota" placeholder="Nota" required>
-  </form>
+    <form>
+        <div class="field">
+            Nota<span class="mandatory">*</span>
+        </div>
+        <input type="text" id="lname" name="Nota" placeholder="Nota" required>
+    </form>
 </div>
 <p>Contact: <a href="url">secretariat [ at ] acs.pub.ro</a></p>
 
 <form>
-  <div class="selectBox" (click)="showCheckboxes()">
-    <select>
-      <option>Select an option</option>
-    </select>
-    <div class="overSelect"></div>
-  </div>
+      <div class="selectBox" (click)=showCheckboxes()>
+        <select>
+          <option>Ascunde lista de studenti</option>
+        </select>
+        <div class="overSelect"></div>
+      </div>
+      <div id="checkboxes">
+        <label for="one">
+          <input type="checkbox" id="one" />First checkbox</label>
+        <label for="two">
+          <input type="checkbox" id="two" />Second checkbox</label>
+        <label for="three">
+          <input type="checkbox" id="three" />Third checkbox</label>
+          
+    </div>
+  </form>
 
-  <div id="checkboxes">
-    <label for="one">
-      <input type="checkbox" id="one"/>First checkbox</label>
-    <label for="two">
-      <input type="checkbox" id="two"/>Second checkbox</label>
-    <label for="three">
-      <input type="checkbox" id="three"/>Third checkbox</label>
-  </div>
-</form>
+  <div style="position:absolute; top: 21%; left: 57%; color:rgb(76, 74, 74); font-size: 2.5vmin">
+    <h2>
+       Notare multipla:
+    </h2>
+</div>
 
-<!--<script>-->
-<!--  const app = angular.module('myApp', []);-->
-<!--  app.controller('customersCtrl', function ($scope, $http) {-->
-<!--    $http.get("customers_mysql.php")-->
-<!--      .then(function (response) {-->
-<!--        $scope.names = response.data.records;-->
-<!--      });-->
-<!--  });-->
-<!--</script>-->
+<div id="Buton-nota">
+  <form action="/action_page.php">
+    <label for="fname">Nota: </label><br>
+    <input type="text" id="fname" name="fname" value="10"><br>
+  </form>
+</div>
+
+<div id="Buton-materie">
+  <form action="/action_page.php">
+    <label for="fname">Materie: </label><br>
+    <input type="text" id="fname" name="fname" value="Numele materiei"><br>
+  </form>
+</div>
+
+<div id="Buton-salvare">
+  <button action="/action_page.php">
+    <label for="fname">Salveaza note</label><br>
+  </button>
+</div>
+   
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('customersCtrl', function($scope, $http) {
+     $http.get("customers_mysql.php")
+     .then(function (response) {$scope.names = response.data.records;});
+  });
+</script>
