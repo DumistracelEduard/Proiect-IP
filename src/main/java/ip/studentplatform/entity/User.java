@@ -37,4 +37,11 @@ public class User {
         this.email = email;
         this.cnp = cnp;
     }
+
+    public boolean hasRole(String roleName) {
+        if(role.equals(roleName)) {
+            return true;
+        }
+        return false;
+    }
 }

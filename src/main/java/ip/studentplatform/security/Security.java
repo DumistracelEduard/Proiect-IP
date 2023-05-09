@@ -1,6 +1,7 @@
 package ip.studentplatform.security;
 
 import ip.studentplatform.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -18,6 +19,8 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 @Configuration
 @EnableWebSecurity
 public class Security {
+    @Autowired
+    private LoginSuccessHandler loginSuccessHandler;
     @Bean
     public UserDetailsService userDetailsService() {
         return new UserService();
@@ -50,7 +53,7 @@ public class Security {
                 .requestMatchers("/user/successful").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("http://localhost:4200/admin", true).permitAll();
+                .formLogin().successHandler(loginSuccessHandler).permitAll();
         return http.build();
     }
 }

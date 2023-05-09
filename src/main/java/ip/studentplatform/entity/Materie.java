@@ -21,8 +21,4 @@ public class Materie {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     Professor professor;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idgrade")
-    Grade grade;
 }
