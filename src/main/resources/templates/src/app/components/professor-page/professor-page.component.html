@@ -1,106 +1,100 @@
-
 <div style="position:absolute; top: 2%; left: 4%; color:white; font-size: 2.5vmin">
-    <h1>
-        @StudentPlatform
-    </h1>
-    <h4>
-        Platforma catalog online
-    </h4>
+  <h1>
+      @StudentPlatform
+  </h1>
+  <h4>
+      Platforma catalog online
+  </h4>
 </div>
 
 <div style="position:absolute; top: 15%; left: 4%; color:white; font-size: 3.5vmin">
-    <h4>
-        [NUME] [PRENUME] profesor
-    </h4>
+  <h4>
+      [NUME] [PRENUME] profesor
+  </h4>
 </div>
 
 
 <img id="logo" src="./assets/poli5.png">
 
 <div id="student_text_box">
-    <form>
-        <div class="field">
-            Utilizator<span class="mandatory">*</span>
-        </div>
-        <input type="text" id="lname" name="Nume" placeholder="Utilizator" required>
-    </form>
+  <form>
+      <div class="field">
+          Utilizator<span class="mandatory">*</span>
+      </div>
+      <input type="text" id="lname" name="Nume" placeholder="Utilizator" required>
+
+      <div class="field">
+        Materie<span class="mandatory">*</span>
+    </div>
+    <input type="text" id="lname" name="Materie" placeholder="Materie" required>
+
+    <div class="field">
+      Nota<span class="mandatory">*</span>
+  </div>
+  <input type="text" id="lname" name="Nota" placeholder="Nota" required>
+  </form>
+
 </div>
 
-<div id="materie_text_box">
-    <form>
-        <div class="field">
-            Materie<span class="mandatory">*</span>
-        </div>
-        <input type="text" id="lname" name="Materie" placeholder="Materie" required>
-    </form>
-</div>
-
-<div id="nota_text_box">
-    <form>
-        <div class="field">
-            Nota<span class="mandatory">*</span>
-        </div>
-        <input type="text" id="lname" name="Nota" placeholder="Nota" required>
-    </form>
-</div>
 
 <div id="Buton-salvare-nota">
-  <button action="/action_page.php">
-    <label for="fname">Salveaza nota</label><br>
-  </button>
+<button action="/action_page.php">
+  <label for="fname">Salveaza nota</label><br>
+</button>
 </div>
 
 <p>Contact: <a href="url">secretariat [ at ] acs.pub.ro</a></p>
 
 
 <form>
-      <div class="selectBox" (click)=showCheckboxes()>
-        <select>
-          <option>Ascunde lista de studenti</option>
-        </select>
-        <div class="overSelect"></div>
-      </div>
-      <div id="checkboxes">
-        <label for="one">
-          <input type="checkbox" id="one" />First checkbox</label>
-        <label for="two">
-          <input type="checkbox" id="two" />Second checkbox</label>
-        <label for="three">
-          <input type="checkbox" id="three" />Third checkbox</label>
-          
+    <div class="selectBox" (click)=showCheckboxes()>
+      <select>
+        <option>Ascunde lista de studenti</option>
+      </select>
+      <div class="overSelect"></div>
     </div>
-  </form>
+    <div id="checkboxes">
+      <label for="one">
+        <input type="checkbox" id="one" />First checkbox</label>
+      <label for="two">
+        <input type="checkbox" id="two" />Second checkbox</label>
+      <label for="three">
+        <input type="checkbox" id="three" />Third checkbox</label>
+        
+  </div>
+</form>
 
-  <div style="position:absolute; top: 21%; left: 57%; color:rgb(76, 74, 74); font-size: 2.5vmin">
-    <h2>
-       Notare multipla:
-    </h2>
+<div style="position:absolute; top: 21%; left: 57%; color:rgb(76, 74, 74); font-size: 2.5vmin">
+  <h2>
+     Notare multipla:
+  </h2>
 </div>
 
 <div id="Buton-nota">
-  <form action="/action_page.php">
-    <label for="fname">Nota: </label><br>
-    <input type="text" id="fname" name="fname" value="10"><br>
-  </form>
+<form action="/action_page.php">
+  <label for="fname">Nota: </label><br>
+  <input type="text" id="fname" name="fname" value="10"><br>
+</form>
+
 </div>
 
 <div id="Buton-materie">
-  <form action="/action_page.php">
-    <label for="fname">Materie: </label><br>
-    <input type="text" id="fname" name="fname" value="Numele materiei"><br>
-  </form>
+<form action="/action_page.php">
+  <label for="fname">Materie: </label><br>
+  <input type="text" id="fname" name="fname" value="Numele materiei"><br>
+</form>
 </div>
 
 <div id="Buton-salvare">
-  <button action="/action_page.php">
-    <label for="fname">Salveaza note</label><br>
-  </button>
+<button action="/action_page.php">
+  <label for="fname">Salveaza note</label><br>
+</button>
 </div>
-   
+ 
 <script>
-  var app = angular.module('myApp', []);
-  app.controller('customersCtrl', function($scope, $http) {
-     $http.get("customers_mysql.php")
-     .then(function (response) {$scope.names = response.data.records;});
-  });
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+   $http.get("customers_mysql.php")
+   .then(function (response) {$scope.names = response.data.records;});
+});
 </script>
