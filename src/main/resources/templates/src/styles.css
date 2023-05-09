@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 html {
   justify-content: center;
-  overflow: hidden;
+  /*overflow: hidden;*/
   padding: 0;
   margin: 0;
   font-family: 'Lato', sans-serif;
