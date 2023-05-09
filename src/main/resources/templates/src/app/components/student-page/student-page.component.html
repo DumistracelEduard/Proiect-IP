@@ -27,48 +27,42 @@
 </div>
 
 
+
+
 <div class="container">
     <form method="POST" action="http://localhost:8082/user/putData" enctype="multipart/form-data" id="loginForm">
-        <div class="field">
-            CNP
-        </div>
-        <input type="text" id="lname" name="cnp" required>
+        <table>
+          <tr>
+            <td align="right">CNP:</td>
+            <td align="left"><input type="text" name="first" /></td>
+          </tr>
+          <tr>
+            <td align="right">Număr de telefon:</td>
+            <td align="left"><input type="text" name="last" /></td>
+          </tr>
+          <tr>
+            <td align="right">Data nașterii:</td>
+            <td align="left"><input type="text" name="email" /></td>
+          </tr>
+          <tr>
+            <td align="right">IBAN:</td>
+            <td align="left"><input type="text" name="email" /></td>
+          </tr>
+          <tr>
+            <td align="right">Studii anterioare:</td>
+            <td align="left"><input type="text" name="email" /></td>
+          </tr>
+          <tr>
+            <td align="right">Cămin:</td>
+            <td align="left"><input type="text" name="email" /></td>
+          </tr>
+          <tr>
+            <td align="right">Cameră</td>
+            <td align="left"><input type="text" name="email" /></td>
+          </tr>
+        </table>
+      </form>
 
-        <div class="field">
-            Număr de telefon
-        </div>
-        <input type="text" id="lname" name="phoneNumber" required>
-
-        <div class="field">
-            Data nașterii
-        </div>
-        <input type="text" id="lname" name="birthday" required>
-
-        <div class="field">
-            IBAN
-        </div>
-        <input type="text" id="lname" name="iban" required>
-
-        <div class="field">
-            Studii anterioare
-        </div>
-        <input type="text" id="lname" name="highSchool" required>
-
-        <div class="field">
-            Cămin
-        </div>
-        <input type="text" id="lname" name="dorm" required>
-
-        <div class="field">
-            Cameră
-        </div>
-        <input type="text" id="lname" name="room" required>
-
-        <div class="button">
-            <button type="submit">Salveaza</button>
-        </div>
-
-    </form>
 </div>
 
 
