@@ -8,7 +8,7 @@ import { ProfessorPageComponent } from './components/professor-page/professor-pa
 import {StudentPageComponent} from './components/student-page/student-page.component';
 
 const routes: Routes = [
-  {path:"", redirectTo:"admin", pathMatch:"full"},
+  {path:"", redirectTo:"login", pathMatch:"full"},
   {path:"login", component:LoginPageComponent},
   {path:"home", component:HomeComponent},
   {path:"admin", component:AdminPageComponent},
