@@ -11,4 +11,6 @@ public interface ICrudRepositoryClass {
     Materie getMaterie(String name);
 
     int updateMaterie(int id, Professor professor);
+
+    List<Materie> getAllMaterie();
 }

@@ -29,4 +29,8 @@ public class ClassService {
         this.iCrudRepositoryClass.updateMaterie(id, professor);
     }
 
+    public List<Materie> getListMaterie() {
+        return this.iCrudRepositoryClass.getAllMaterie();
+    }
+
 }

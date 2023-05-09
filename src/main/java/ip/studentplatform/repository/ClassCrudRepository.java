@@ -26,4 +26,7 @@ public interface ClassCrudRepository extends CrudRepository<User, Integer>, ICru
     @Modifying
     @Query("UPDATE Materie m SET m.professor=:professor WHERE m.id_mat=:id")
     int updateMaterie(int id, Professor professor);
+
+    @Query("SELECT m FROM Materie m")
+    List<Materie> getAllMaterie();
 }

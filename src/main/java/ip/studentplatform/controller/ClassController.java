@@ -53,6 +53,10 @@ public class ClassController {
         materies.add(materie);
         System.out.println(materie.getId_mat());
         this.userService.updateProfessor(name, materies);
+    }
 
+    @GetMapping("/getMaterie")
+    public List<Materie> getAllMaterie() {
+        return this.classService.getListMaterie();
     }
 }

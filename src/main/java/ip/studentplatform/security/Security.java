@@ -50,7 +50,7 @@ public class Security {
                 .requestMatchers("/user/successful").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().permitAll();
+                .formLogin().defaultSuccessUrl("http://localhost:4200/admin", true).permitAll();
         return http.build();
     }
 }

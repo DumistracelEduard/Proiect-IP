@@ -72,4 +72,36 @@ public class UserService implements UserDetailsService {
         }
         return user;
     }
+
+    public List<Student> getStudentList() {
+        return this.iCrudRepositoryUser.getAllStudent();
+    }
+
+    public int addBirthday(String birthday, String firstname, String lastname) {
+        return this.iCrudRepositoryUser.addBirthday(birthday, firstname, lastname);
+    }
+
+    public int addCnp(String cnp, String firstname, String lastname) {
+        return this.iCrudRepositoryUser.addCnp(cnp, firstname, lastname);
+    }
+
+    public int addPhoneNumber(String phoneNumber, String firstname, String lastname) {
+        return this.iCrudRepositoryUser.addPhoneNumber(phoneNumber, firstname, lastname);
+    }
+
+    public int addDorm(String dorm, String firstname, String lastname) {
+        return this.iCrudRepositoryUser.addDorm(dorm, firstname, lastname);
+    }
+
+    public int addRoom(String room, String firstname, String lastname) {
+        return this.iCrudRepositoryUser.addRoom(room, firstname, lastname);
+    }
+
+    public int addHighSchool(String highSchool, String firstname, String lastname) {
+        return this.iCrudRepositoryUser.addHighSchool(highSchool, firstname, lastname);
+    }
+
+    public int addIban(String iban, String firstname, String lastname) {
+        return this.iCrudRepositoryUser.addIban(iban, firstname, lastname);
+    }
 }
