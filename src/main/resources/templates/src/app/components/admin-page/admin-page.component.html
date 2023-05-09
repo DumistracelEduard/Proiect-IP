@@ -36,13 +36,9 @@
                 <div class="fieldname">Materie</div>
             </div>
 
-            <select title="materie" id="Materie" name="Materie">
-                <option value="var0">--Alege--</option>
-                <option value="var1">Proiectare pe microprocesoare</option>
-                <option value="var2">Sisteme de operare</option>
-                <option value="var3">Baze de date</option>
-                <option value="var4">Arhitectura sistemelor de calcul</option>
-                <option value="var5">Ingineria programelor</option>
+            <select name="strings">
+                <option value="">-- Select a string --</option>
+                <option *ngFor="let str of strings" [value]="str">{{str}}</option>
             </select>
 
             <div style="text-align: center;">
