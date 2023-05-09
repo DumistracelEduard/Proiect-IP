@@ -100,4 +100,22 @@ public class UserController {
         Student student = (Student) this.userService.getUser(principal.getName());
         return this.userService.addIban(iban, student.getFirstName(), student.getLastName());
     }
+    @PostMapping("/putData")
+    public void updateData(@RequestParam(name = "highSchool") String highSchool,
+                      @RequestParam(name = "room") String room,
+                      @RequestParam(name = "dorm") String dorm,
+                      @RequestParam(name = "phoneNumber") String phoneNumber,
+                      @RequestParam(name = "cnp") String cnp,
+                      @RequestParam(name = "birthday") String birthday,
+                      @RequestParam(name = "iban") String iban,
+                      Principal principal) {
+        Student student = (Student) this.userService.getUser(principal.getName());
+        this.userService.addIban(iban, student.getFirstName(), student.getLastName());
+        this.userService.addHighSchool(highSchool, student.getFirstName(), student.getLastName());
+        this.userService.addRoom(room, student.getFirstName(), student.getLastName());
+        this.userService.addDorm(dorm, student.getFirstName(), student.getLastName());
+        this.userService.addPhoneNumber(phoneNumber, student.getFirstName(), student.getLastName());
+        this.userService.addCnp(cnp, student.getFirstName(), student.getLastName());
+        this.userService.addBirthday(birthday, student.getFirstName(), student.getLastName());
+    }
 }
