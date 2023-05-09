@@ -1,5 +1,5 @@
 #logo {
-    width: 30%;
+    width: 40%;
     position: absolute;
     top: 0;
     right: 0;
@@ -11,23 +11,21 @@
 }
 
 #username_text_box {
-    margin-right: 550px;
-    margin-top: 300px;
-    margin-left: 50px;
+    margin-top: 15%;
+    margin-left: 10%;
     border-radius: 20px;
     background-color: #f2f2f2;
     padding: 20px;
-    width: 30%;
+    width: 35%;
 }
 
 #drop_down {
-    margin-right: 550px;
-    margin-left: 50px;
-    margin-top: 20px;
+    margin-top: 3%;
+    margin-left: 10%;
     border-radius: 20px;
     background-color: #f2f2f2;
     padding: 20px;
-    width: 30%;
+    width: 35%;
 }
 
 input[type=text], select, textarea {
@@ -53,8 +51,8 @@ input[type=text], select, textarea {
 
 #tooltip {
     position: absolute;
-    top: 25%;
-    right: 20%;
+    top: 40%;
+    left: 65%;
     color: rgb(10, 0, 1);
     padding: 20px;
     background: rgb(59, 162, 235);
@@ -62,8 +60,9 @@ input[type=text], select, textarea {
 }
 
 .addfile {
-    margin-left: 65%;
-    margin-top: -12%;
+    position: absolute;
+    left: 70%;
+    margin-top: -2%;
     position: absolute;
     top: 50%;
     right: 20%;
@@ -87,7 +86,7 @@ input[type=text], select, textarea {
 }
 
 #button2 {
-    width: 50%;
+    width: 100%;
     background-color: #0441aa;
     color: white;
     padding: 12px 40px;
