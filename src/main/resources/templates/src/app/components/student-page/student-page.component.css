@@ -6,6 +6,12 @@
     
 }
 
+#image_stud {
+    width: 20%;
+    margin-left: 75%;
+    margin-top: -20%;
+}
+
 h1 {
     color:white;
     margin-left: 10%;
@@ -48,7 +54,7 @@ input[type=text], select {
     padding: 20px;
     width: 60%;
     height: 60%;
-    margin-top: -15%;
+    margin-top: -5%;
 }
 
 
@@ -88,7 +94,7 @@ button[type=date_personale] {
 }
 
 
-button[type=salvare] {
+button[type=submit] {
     width: 20%;
     background-color: #0441aa;
     color: white;
@@ -96,6 +102,7 @@ button[type=salvare] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 73%;
+    margin-left: 78%;
     margin-top: 2%;
+   
 }
