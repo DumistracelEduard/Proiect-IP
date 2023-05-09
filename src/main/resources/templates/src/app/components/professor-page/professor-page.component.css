@@ -24,33 +24,38 @@ body {
 }
 
 #student_text_box {
-    margin-right: -60%;
-    margin-top: 20%;
-    margin-left: 8%;
+    margin-top: 12%;
+    margin-left: 3%;
     border-radius: 20px;
     background-color: #f2f2f2;
     padding: 20px;
-    width: 50%;
+    width: 35%;
 }
 
 #materie_text_box {
-    margin-right: 0;
     margin-top: 2%;
-    margin-left: 8%;
+    margin-left: 3%;
     border-radius: 20px;
     background-color: #f2f2f2;
     padding: 20px;
-    width: 50%;
+    width: 35%;
 }
 
 #nota_text_box {
-    margin-right: 550px;
     margin-top: 2%;
-    margin-left: 8%;
+    margin-left: 3%;
     border-radius: 20px;
     background-color: #f2f2f2;
     padding: 20px;
-    width: 50%;
+    width: 35%;
+}
+
+#Buton-salvare-nota{
+    margin-top: -3%;
+    margin-left: 44%;
+    margin-right: -90%;
+    background-color: #f2f2f2;
+    width : 7%;
 }
 
 #list-students {
@@ -60,7 +65,7 @@ body {
     border-radius: 0px;
     background-color: #f2f2f2;
     padding: 10px;
-    width: 50%;
+    width: 35%;
 }
 
 input[type=text], select, textarea {
@@ -196,3 +201,4 @@ button[type=Trimitere] {
   border: 1px #dadada solid;
   background-color: #ebeae7;
 }
+
