@@ -56,7 +56,12 @@ public class ClassController {
     }
 
     @GetMapping("/getMaterie")
-    public List<Materie> getAllMaterie() {
-        return this.classService.getListMaterie();
+    public List<String> getAllMaterie() {
+        List<Materie> materies = this.classService.getListMaterie();
+        List<String> data = new ArrayList<>();
+        for(Materie materie: materies) {
+            data.add(materie.getNameMaterie());
+        }
+        return data;
     }
 }
