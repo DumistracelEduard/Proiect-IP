@@ -51,7 +51,7 @@ input[type=text], select, textarea {
 
 #tooltip {
     position: absolute;
-    top: 40%;
+    top: 25%;
     left: 65%;
     color: rgb(10, 0, 1);
     padding: 20px;
@@ -62,7 +62,7 @@ input[type=text], select, textarea {
 .addfile {
     position: absolute;
     left: 70%;
-    margin-top: -2%;
+    margin-top: -12%;
     position: absolute;
     top: 50%;
     right: 20%;
@@ -94,3 +94,48 @@ input[type=text], select, textarea {
     border-radius: 4px;
     cursor: pointer;
 }
+
+.container {
+    position:absolute;
+    padding: 02rem 0rem;
+    top : 70%;
+    left : 65%;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  h3 {
+    margin: 0rem 0rem ;
+  }
+
+  .table-image {
+      vertical-align: middle;
+      width: 25%;
+
+  }
+  td, th, tr{
+    border: 1.5px solid;
+    padding: 3px;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  td{
+    padding: 12px;
+  }
+  thead{
+    padding: 4px;
+  }
+
+  #image_button{
+    width:400%;
+  }
+
+  #table_button{
+    border:none;
+    cursor:pointer;
+    background-color: inherit;
+    width:30%;
+    margin:0;
+  }
