@@ -185,3 +185,47 @@ top: 71%;
 border: 1px #dadada solid;
 background-color: #ebeae7;
 }
+
+
+
+
+
+.container_pic {
+  width: 115%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  float: right;
+
+}
+
+/* Make the image responsive */
+.container_pic img {
+  width: 40%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  float: right;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container_pic .btn {
+  position: absolute;
+  
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 3%;
+  margin-left: 95%;
+  width: 8%;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
