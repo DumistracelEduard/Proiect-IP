@@ -53,7 +53,9 @@ public class Security {
                 .requestMatchers("/user/successful").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().successHandler(loginSuccessHandler).permitAll();
+                .formLogin().successHandler(loginSuccessHandler).permitAll()
+                .and()
+                .logout().permitAll().logoutSuccessUrl("http://localhost:4200/login");
         return http.build();
     }
 }
