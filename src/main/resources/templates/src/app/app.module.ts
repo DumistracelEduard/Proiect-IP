@@ -6,20 +6,20 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import {LoginPageComponent} from './components/login-page/login-page.component';
-import {HomeComponent} from './components/home/home.component';
 import {AdminPageComponent} from './components/admin-page/admin-page.component';
 import {ProfessorPageComponent} from './components/professor-page/professor-page.component';
-import {LoginSuccessComponent} from './components/login-success/login-success.component';
 import {CorsInterceptor} from "./cors.interceptor";
+import { ChangePassw1Component } from './components/change-passw1/change-passw1.component';
+import { ChangePassw2Component } from './components/change-passw2/change-passw2.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginPageComponent,
-        HomeComponent,
         AdminPageComponent,
         ProfessorPageComponent,
-        LoginSuccessComponent,
+        ChangePassw1Component,
+        ChangePassw2Component,
     ],
     imports: [
         BrowserModule,

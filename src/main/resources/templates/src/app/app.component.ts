@@ -3,7 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import { HomeComponent } from './components/home/home.component';
+
 
 @Component({
   selector: 'app-root',
@@ -27,7 +27,6 @@ export class AppComponent {
 
 }
 imports: [
-  HomeComponent,
   LoginPageComponent,
   AdminPageComponent
 ]

@@ -3,17 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import { HomeComponent } from './components/home/home.component';
 import { ProfessorPageComponent } from './components/professor-page/professor-page.component';
 import {StudentPageComponent} from './components/student-page/student-page.component';
+import {ChangePassw1Component} from './components/change-passw1/change-passw1.component';
+import {ChangePassw2Component} from './components/change-passw2/change-passw2.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"login", pathMatch:"full"},
   {path:"login", component:LoginPageComponent},
-  {path:"home", component:HomeComponent},
   {path:"admin", component:AdminPageComponent},
   {path:"professor", component:ProfessorPageComponent},
-  {path:"student", component:StudentPageComponent}
+  {path:"student", component:StudentPageComponent},
+  {path:"change_passw1", component:ChangePassw1Component},
+  {path:"change_passw2", component:ChangePassw2Component}
 ];
 
 @NgModule({
