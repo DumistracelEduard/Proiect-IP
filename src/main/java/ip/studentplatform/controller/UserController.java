@@ -39,19 +39,6 @@ public class UserController {
     public User getUserByUsername(@RequestParam(name = "name") String name) {
         return this.userService.getUser(name);
     }
-
-//    @GetMapping("/login")
-//    public ModelAndView login() {
-//        ModelAndView model = new ModelAndView("login.html");
-//        return model;
-//    }
-//
-//    @GetMapping("/successful")
-//    public ModelAndView successful() {
-//        ModelAndView model = new ModelAndView("login_success.html");
-//        return model;
-//    }
-
     @GetMapping("/getListStudents")
     public List<Student> getStudentsList() {
         return this.userService.getStudentList();
