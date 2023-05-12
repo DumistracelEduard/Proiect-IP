@@ -67,4 +67,19 @@ public interface ICrudRepositoryUser extends CrudRepository<User, Integer>{
     @Modifying
     @Query("UPDATE Student s SET s.iban =:iban WHERE s.firstName =:firstname and s.lastName =:lastname")
     int addIban(String iban, String firstname, String lastname);
+
+    @Query("SELECT s FROM Student s where s.firstName=:firstName and s.lastName=:lastName")
+    Student getStudent(String firstName, String lastName);
+
+    @Modifying
+    @Query("UPDATE Student s SET s.password=:password where s.username=:username")
+    int updatePasswordStudent(String password, String username);
+
+    @Modifying
+    @Query("UPDATE Professor s SET s.password=:password where s.username=:username")
+    int updatePasswordProfessor(String password, String username);
+
+    @Modifying
+    @Query("UPDATE Admin s SET s.password=:password where s.username=:username")
+    int updatePasswordAdmin(String password, String username);
 }

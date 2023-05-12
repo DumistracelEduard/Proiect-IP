@@ -104,4 +104,27 @@ public class UserService implements UserDetailsService {
     public int addIban(String iban, String firstname, String lastname) {
         return this.iCrudRepositoryUser.addIban(iban, firstname, lastname);
     }
+
+    public Student getStudent(String firstName, String lastName) {
+        return this.iCrudRepositoryUser.getStudent(firstName, lastName);
+    }
+
+    public int updatePassword(User user, String newPassword) {
+
+        if(user.getRole().equals("admin")) {
+            System.out.println(user.getUsername());
+            System.out.println(newPassword);
+            return this.iCrudRepositoryUser.updatePasswordAdmin(newPassword, user.getUsername());
+        } else if(user.getRole().equals("student")) {
+            System.out.println(user.getUsername());
+            System.out.println(newPassword);
+            return this.iCrudRepositoryUser.updatePasswordStudent(newPassword, user.getUsername());
+        } else if(user.getRole().equals("profesor")) {
+            System.out.println(user.getUsername());
+            System.out.println(newPassword);
+            return this.iCrudRepositoryUser.updatePasswordProfessor(newPassword, user.getUsername());
+        }
+
+        return 0;
+    }
 }

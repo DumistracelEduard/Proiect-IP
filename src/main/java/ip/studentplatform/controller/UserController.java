@@ -4,15 +4,19 @@ import ip.studentplatform.entity.Student;
 import ip.studentplatform.entity.User;
 import ip.studentplatform.service.EmailSenderService;
 import ip.studentplatform.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
@@ -102,5 +106,23 @@ public class UserController {
         this.userService.addPhoneNumber(phoneNumber, student.getFirstName(), student.getLastName());
         this.userService.addCnp(cnp, student.getFirstName(), student.getLastName());
         this.userService.addBirthday(birthday, student.getFirstName(), student.getLastName());
+    }
+
+    @PostMapping("/resetPassword")
+    public void changePasswordEmail(@RequestParam("email") String email,
+                                    @RequestParam("username") String username,
+                                    HttpServletRequest request) {
+        User user = this.userService.getUser(username);
+        //todo in cazul in care userul nu exista
+        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder(8);
+        for(int i = 0; i < 8; ++i) {
+            sb.append(AB.charAt(rnd.nextInt(AB.length())));
+        }
+        this.userService.updatePassword(user, new BCryptPasswordEncoder().encode(sb.toString()));
+        senderService.sendSimpleEmail(user.getEmail(),
+                "StudentPlatform",
+                "Reset password:" + sb.toString() + "\n");
     }
 }

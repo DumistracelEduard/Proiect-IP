@@ -43,6 +43,9 @@ public class Security {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/user/resetPassword").permitAll()
+                .and()
+                .authorizeHttpRequests()
                 .requestMatchers("/user/upload-customers-data").hasAnyAuthority("admin")
                 .requestMatchers("/user/successful").permitAll()
                 .requestMatchers("/class/addProfessorToClass").hasAnyAuthority("admin")

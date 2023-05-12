@@ -19,6 +19,9 @@ public class Grade {
     @Column(name = "grade")
     int grade;
 
+    @Column(name = "approved")
+    Boolean approvedGrade;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     Student student;
