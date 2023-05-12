@@ -1,6 +1,5 @@
 package ip.studentplatform.controller;
 
-import ip.studentplatform.entity.Professor;
 import ip.studentplatform.entity.Student;
 import ip.studentplatform.entity.User;
 import ip.studentplatform.service.EmailSenderService;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
 import java.util.List;

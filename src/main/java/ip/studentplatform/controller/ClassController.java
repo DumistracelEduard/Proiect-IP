@@ -1,7 +1,6 @@
 package ip.studentplatform.controller;
 
 import ip.studentplatform.entity.Materie;
-import ip.studentplatform.entity.Professor;
 import ip.studentplatform.service.ClassService;
 import ip.studentplatform.service.EmailSenderService;
 import ip.studentplatform.service.UserService;
