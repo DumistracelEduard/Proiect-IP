@@ -129,7 +129,7 @@ thead{
 }
 
 #image_button{
-  width:400%;
+  width:100%;
 }
 
 #table_button{
@@ -163,7 +163,7 @@ thead{
 }
 
 /* Style the button and place it in the middle of the container/image */
-.container_pic .btn {
+.container_pic a {
   position: absolute;
   
   transform: translate(-50%, -50%);
@@ -177,11 +177,14 @@ thead{
   border-radius: 5px;
   margin-top: 3%;
   margin-left: 95%;
-  width: 8%;
+  width: 4%;
 }
 
-.container .btn:hover {
+.container_pic a:hover {
   background-color: black;
 }
+
+
+
 
 

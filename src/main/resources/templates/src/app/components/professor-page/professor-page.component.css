@@ -209,7 +209,7 @@ background-color: #ebeae7;
 }
 
 /* Style the button and place it in the middle of the container/image */
-.container_pic .btn {
+.container_pic a {
   position: absolute;
   
   transform: translate(-50%, -50%);
@@ -223,9 +223,9 @@ background-color: #ebeae7;
   border-radius: 5px;
   margin-top: 3%;
   margin-left: 95%;
-  width: 8%;
+  width: 4%;
 }
 
-.container .btn:hover {
+.container a:hover {
   background-color: black;
 }
