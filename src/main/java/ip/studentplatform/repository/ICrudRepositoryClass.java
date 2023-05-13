@@ -2,6 +2,7 @@ package ip.studentplatform.repository;
 
 import ip.studentplatform.entity.Materie;
 import ip.studentplatform.entity.Professor;
+import ip.studentplatform.entity.Student;
 
 import java.util.List;
 
@@ -13,4 +14,7 @@ public interface ICrudRepositoryClass {
     int updateMaterie(int id, Professor professor);
 
     List<Materie> getAllMaterie();
+
+    int addFlagGrade(Student student, Materie materie, Boolean flag);
+
 }

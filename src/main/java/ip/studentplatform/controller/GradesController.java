@@ -45,7 +45,7 @@ public class GradesController {
                 "Grades approved for " + materie + "\n");
     }
 
-    @PreAuthorize("hasAnyAuthority('profesor')")
+    @PreAuthorize("hasAuthority('profesor')")
     @PutMapping("/addGrade")
     public void addGrade(@RequestParam("grade") int grade,
                          @RequestParam("firstName") String firstName,
@@ -55,7 +55,6 @@ public class GradesController {
         Materie materie1 = this.classService.getMaterie(materie);
         Student student = this.userService.getStudent(firstName, lastName);
 
-        //TODO ADD GRADE IN STUDENT
         System.out.println(student.getId_user() + " " + student.getRole());
         Grade grade1 = new Grade();
         grade1.setGrade(grade);
@@ -65,4 +64,7 @@ public class GradesController {
 
         this.gradesService.addGrades(grade1);
     }
+
+//    @PreAuthorize("hasAuthority('profesor')")
+//    @PutMapping()
 }

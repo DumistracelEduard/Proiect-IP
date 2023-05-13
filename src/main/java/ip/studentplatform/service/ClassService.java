@@ -2,6 +2,7 @@ package ip.studentplatform.service;
 
 import ip.studentplatform.entity.Materie;
 import ip.studentplatform.entity.Professor;
+import ip.studentplatform.entity.Student;
 import ip.studentplatform.repository.ICrudRepositoryClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,10 @@ public class ClassService {
     public List<Materie> getListMaterie() {
         return this.iCrudRepositoryClass.getAllMaterie();
     }
+
+    public int addFlagGrade(Student student, Materie materie, Boolean flag) {
+        return this.iCrudRepositoryClass.addFlagGrade(student, materie, flag);
+    }
+
 
 }

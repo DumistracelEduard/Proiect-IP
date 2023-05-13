@@ -124,7 +124,10 @@ public class UserService implements UserDetailsService {
             System.out.println(newPassword);
             return this.iCrudRepositoryUser.updatePasswordProfessor(newPassword, user.getUsername());
         }
-
         return 0;
+    }
+
+    public List<Admin> getListAdmin() {
+        return this.iCrudRepositoryUser.getListAdmin();
     }
 }

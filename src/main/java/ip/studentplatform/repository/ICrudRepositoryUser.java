@@ -1,9 +1,6 @@
 package ip.studentplatform.repository;
 
-import ip.studentplatform.entity.Materie;
-import ip.studentplatform.entity.Professor;
-import ip.studentplatform.entity.Student;
-import ip.studentplatform.entity.User;
+import ip.studentplatform.entity.*;
 import jakarta.transaction.Transactional;
 import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
 import org.springframework.data.jpa.repository.Modifying;
@@ -82,4 +79,8 @@ public interface ICrudRepositoryUser extends CrudRepository<User, Integer>{
     @Modifying
     @Query("UPDATE Admin s SET s.password=:password where s.username=:username")
     int updatePasswordAdmin(String password, String username);
+
+
+    @Query("SELECT a FROM Admin a")
+    List<Admin> getListAdmin();
 }

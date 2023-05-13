@@ -2,6 +2,7 @@ package ip.studentplatform.repository;
 
 import ip.studentplatform.entity.Materie;
 import ip.studentplatform.entity.Professor;
+import ip.studentplatform.entity.Student;
 import ip.studentplatform.entity.User;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
@@ -29,4 +30,8 @@ public interface ClassCrudRepository extends CrudRepository<User, Integer>, ICru
 
     @Query("SELECT m FROM Materie m")
     List<Materie> getAllMaterie();
+
+    @Modifying
+    @Query("UPDATE Grade g SET g.flagGrade=:flag WHERE g.student=:student and g.materie =:materie")
+    int addFlagGrade(Student student, Materie materie, Boolean flag);
 }
