@@ -15,6 +15,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 // import {BasicSnackbarComponent} from './components/basic-snackbar/basic-snackbar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {StudentPageComponent} from "./components/student-page/student-page.component";
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         ProfessorPageComponent,
         ChangePassw1Component,
         ChangePassw2Component,
+        StudentPageComponent
     ],
     imports: [
         BrowserModule,

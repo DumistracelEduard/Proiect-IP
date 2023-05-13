@@ -6,14 +6,14 @@
 
 
 <div>
-  <form method="POST" action="http://localhost:8082/logout" enctype="multipart/form-data" id="logoutForm">
-<div class="topnav">
-  <a class="active" href="./student">Date personale</a>
-  <a href="./">Vizualizare catalog</a>
-  <!-- <a href="#contact">Anunturi</a> -->
-  <a href="./">Log Out</a>
-</div>
-</form>
+    <form method="POST" action="http://localhost:8082/logout" enctype="multipart/form-data" id="logoutForm">
+        <div class="topnav">
+            <a class="active" href="./student">Date personale</a>
+            <a href="./">Vizualizare catalog</a>
+            <!-- <a href="#contact">Anunturi</a> -->
+            <a href="./">Log Out</a>
+        </div>
+    </form>
 
 </div>
 
@@ -41,46 +41,43 @@
 </div>
 
 
-
-
 <div class="container">
     <form method="POST" action="http://localhost:8082/user/putData" enctype="multipart/form-data" id="loginForm">
         <table>
-          <tr>
-            <td align="right">CNP:</td>
-            <td align="left"><input type="text" name="first" /></td>
-          </tr>
-          <tr>
-            <td align="right">Număr de telefon:</td>
-            <td align="left"><input type="text" name="last" /></td>
-          </tr>
-          <tr>
-            <td align="right">Data nașterii:</td>
-            <td align="left"><input type="text" name="email" /></td>
-          </tr>
-          <tr>
-            <td align="right">IBAN:</td>
-            <td align="left"><input type="text" name="email" /></td>
-          </tr>
-          <tr>
-            <td align="right">Studii anterioare:</td>
-            <td align="left"><input type="text" name="email" /></td>
-          </tr>
-          <tr>
-            <td align="right">Cămin:</td>
-            <td align="left"><input type="text" name="email" /></td>
-          </tr>
-          <tr>
-            <td align="right">Cameră</td>
-            <td align="left"><input type="text" name="email" /></td>
-          </tr>
+            <tr>
+                <td align="right">CNP:</td>
+                <td align="left"><input type="text" name="cnp" (keypress)="validateNo($event)" maxlength="13"></td>
+            </tr>
+            <tr>
+                <td align="right">Număr de telefon:</td>
+                <td align="left"><input type="text" name="nr_tlf" (keypress)="validateNo($event)" maxlength="10"></td>
+            </tr>
+            <tr>
+                <td align="right">Data nașterii:</td>
+                <td align="left"><input type="text" name="birth" (keypress)="validateDate($event)" maxlength="11"
+                                        placeholder="DD/MM/YYYY"></td>
+            </tr>
+            <tr>
+                <td align="right">IBAN:</td>
+                <td align="left"><input type="text" name="iban" maxlength="34"></td>
+            </tr>
+            <tr>
+                <td align="right">Studii anterioare:</td>
+                <td align="left"><input type="text" name="studies"></td>
+            </tr>
+            <tr>
+                <td align="right">Cămin:</td>
+                <td align="left"><input type="text" name="dorm"></td>
+            </tr>
+            <tr>
+                <td align="right">Cameră</td>
+                <td align="left"><input type="text" name="room" (keypress)="validateNo($event)"></td>
+            </tr>
         </table>
-      </form>
+    </form>
 
 </div>
 
 
-
-
-    <img id="image_stud" src="./assets/student_profile.png">
+<img id="image_stud" src="./assets/student_profile.png">
 
