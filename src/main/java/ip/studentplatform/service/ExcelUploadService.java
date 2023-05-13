@@ -96,7 +96,6 @@ public class ExcelUploadService {
                         }
                         userStudent.setRole("student");
                         userStudent.setMateries(new ArrayList<>());
-                        userStudent.setGrade(new ArrayList<>());
                     }
                     cellIndex++;
                 }

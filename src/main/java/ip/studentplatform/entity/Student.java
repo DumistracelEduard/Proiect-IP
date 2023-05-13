@@ -50,10 +50,6 @@ public class Student extends User{
     @JoinColumn(name = "id_mat")
     List<Materie> materies;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idgrade")
-    List<Grade> grade;
-
     public Student(int id_user, String password, String username,
                    String lastName, String firstName, String address,
                    String role, String serie, String grupa, String email, String cnp) {
@@ -64,6 +60,5 @@ public class Student extends User{
         this.serie = serie;
         this.grupa = grupa;
         this.materies = new ArrayList<>();
-        this.grade = new ArrayList<>();
     }
 }

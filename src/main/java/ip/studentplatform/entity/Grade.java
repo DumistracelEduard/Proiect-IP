@@ -13,6 +13,7 @@ import lombok.ToString;
 @Table(name = "grade")
 public class Grade {
     @Id
+    @GeneratedValue
     @Column(name = "idgrade")
     int idgrade;
 
@@ -21,6 +22,9 @@ public class Grade {
 
     @Column(name = "approved")
     Boolean approvedGrade;
+
+    @Column(name = "flag")
+    Boolean flagGrade;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
