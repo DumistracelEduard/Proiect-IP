@@ -1,9 +1,6 @@
 package ip.studentplatform.controller;
 
-import ip.studentplatform.entity.Grade;
-import ip.studentplatform.entity.Materie;
-import ip.studentplatform.entity.Student;
-import ip.studentplatform.entity.User;
+import ip.studentplatform.entity.*;
 import ip.studentplatform.service.ClassService;
 import ip.studentplatform.service.EmailSenderService;
 import ip.studentplatform.service.GradesService;
@@ -17,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/Grades")
@@ -55,7 +53,6 @@ public class GradesController {
         Materie materie1 = this.classService.getMaterie(materie);
         Student student = this.userService.getStudent(firstName, lastName);
 
-        System.out.println(student.getId_user() + " " + student.getRole());
         Grade grade1 = new Grade();
         grade1.setGrade(grade);
         grade1.setApprovedGrade(false);
@@ -65,6 +62,20 @@ public class GradesController {
         this.gradesService.addGrades(grade1);
     }
 
-//    @PreAuthorize("hasAuthority('profesor')")
-//    @PutMapping()
+    @PreAuthorize("hasAuthority('profesor')")
+    @PutMapping("/updateGrade")
+    public void updateGrade(@RequestParam("grade") int grade,
+                            @RequestParam(name = "firstName") String firstName,
+                            @RequestParam(name = "lastName") String lastName,
+                            @RequestParam(name = "nameMaterie") String nameMaterie) {
+        Materie materie1 = this.classService.getMaterie(nameMaterie);
+        Student student = this.userService.getStudent(firstName, lastName);
+        this.gradesService.updateGrade(grade, student, materie1);
+        List<Admin> adminList = this.userService.getListAdmin();
+        for(Admin admin: adminList) {
+            senderService.sendSimpleEmail(admin.getEmail(),
+                    "Update Grades",
+                    "Student " + student.getFirstName() + " " + student.getLastName() + " update grade " + nameMaterie);
+        }
+    }
 }

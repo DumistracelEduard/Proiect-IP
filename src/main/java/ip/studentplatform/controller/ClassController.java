@@ -70,12 +70,12 @@ public class ClassController {
         List<Admin> adminList = this.userService.getListAdmin();
         for(Admin admin: adminList) {
             senderService.sendSimpleEmail(admin.getEmail(),
-                    "Update Grades",
-                    "Student " + student.getFirstName() + " " + student.getLastName() + " update grade " + nameMaterie);
+                    "Flag Grade",
+                    "Student " + student.getFirstName() + " " + student.getLastName() + " flag Grade " + nameMaterie);
         }
         Professor professor = materie.getProfessor();
         senderService.sendSimpleEmail(professor.getEmail(),
-                "Update Grades",
-                "Student " + student.getFirstName() + " " + student.getLastName() + " update grade " + nameMaterie);
+                "Flag Grade",
+                "Student " + student.getFirstName() + " " + student.getLastName() + " flag Grade " + nameMaterie);
     }
 }

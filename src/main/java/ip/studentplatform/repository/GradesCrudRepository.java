@@ -1,6 +1,8 @@
 package ip.studentplatform.repository;
 
 import ip.studentplatform.entity.Grade;
+import ip.studentplatform.entity.Materie;
+import ip.studentplatform.entity.Student;
 import ip.studentplatform.entity.User;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
@@ -15,4 +17,8 @@ public interface GradesCrudRepository extends CrudRepository<Grade, Integer>, IC
     void approvedGrades(String firstName, String lastName, String nameMaterie);
 
     Grade save(Grade grade);
+
+    @Modifying
+    @Query("UPDATE Grade g SET g.grade=:grade, g.approvedGrade=false, g.flagGrade = false WHERE g.student=:student and g.materie=:materie")
+    int updateGrade(int grade, Student student, Materie materie);
 }
