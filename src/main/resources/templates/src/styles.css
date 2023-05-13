@@ -11,11 +11,7 @@ html {
   -o-background-size: cover;
   background-size: 100% 100%;
 }
+.snackbar {
+    opacity: 0;
+}
 
-/*bg-admin {*/
-/*  background: linear-gradient(to top, #0000ff 0%, #00ffff 100%) no-repeat left fixed;*/
-/*  -webkit-background-size: cover;*/
-/*  -moz-background-size: cover;*/
-/*  -o-background-size: cover;*/
-/*  background-size: 100% 100%;*/
-/*}*/
