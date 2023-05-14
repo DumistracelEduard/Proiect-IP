@@ -36,11 +36,6 @@
 </div>
 
 
-<div class="warning">
-    &#9432; Pentru a încărca modificările, nu uitați să salvați!
-</div>
-
-
 <div class="container">
     <form method="POST" action="http://localhost:8082/user/putData" enctype="multipart/form-data" id="loginForm">
         <table>
@@ -78,11 +73,17 @@
 
 </div>
 
+<div style="text-align: center;">
+    <!--            <button type="submit" (click)="manualEnroll()" id = "button1">Salveaza</button>-->
+    <button type="submit" id="button1">Salveaza</button>
+</div>
+
 <img id="image_stud" src="./assets/student_profile.png">
 
 <div class="cal-modal-container">
+    <h4>Structura anului scolar:</h4>
     <div class="cal-modal">
-      <h3>UPCOMING EVENTS</h3>
+      <h4>UPCOMING EVENTS</h4>
       <div id="calendar">
         <div class="placeholder"></div>
         <div class="calendar-events">
@@ -90,4 +91,6 @@
       </div>
     </div>
   </div>
+
+  <p class="explanation"><strong>!</strong>Pentru a încărca modificările, nu uitați să salvați!</p>
 
