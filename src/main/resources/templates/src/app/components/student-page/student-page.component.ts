@@ -1,12 +1,23 @@
 import {Component} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {OnInit } from '@angular/core';
+
+declare var calendar: any;
 
 @Component({
     selector: 'app-student-page',
     templateUrl: './student-page.component.html',
     styleUrls: ['./student-page.component.css']
 })
-export class StudentPageComponent {
+
+export class StudentPageComponent implements OnInit{
+  
+    ngOnInit(): void {
+      new calendar();
+    }
+    
+    title = 'app-js';
+
     constructor(private snackBar: MatSnackBar) {
     }
 
@@ -36,4 +47,4 @@ export class StudentPageComponent {
         }
         return true
     }
-}
+  }
