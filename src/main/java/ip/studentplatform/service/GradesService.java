@@ -7,6 +7,8 @@ import ip.studentplatform.repository.ICrudRepositoryGrades;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GradesService {
     @Autowired
@@ -22,5 +24,9 @@ public class GradesService {
 
     public int updateGrade(int grade, Student student, Materie materie) {
         return this.iCrudRepositoryGrades.updateGrade(grade, student, materie);
+    }
+
+    public List<Grade> getGradeForAdmin(Student student) {
+        return this.iCrudRepositoryGrades.getGradeForAdmin(student);
     }
 }

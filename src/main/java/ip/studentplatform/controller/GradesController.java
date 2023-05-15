@@ -8,10 +8,7 @@ import ip.studentplatform.service.UserService;
 import jakarta.persistence.MappedSuperclass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Array;
 import java.security.Principal;
@@ -100,5 +97,13 @@ public class GradesController {
                     "Update Grades",
                     "Student " + student.getFirstName() + " " + student.getLastName() + " update grade " + nameMaterie);
         }
+    }
+
+    @PreAuthorize("hasAuthority('admin')")
+    @GetMapping("/getGradesForAdmin")
+    public List<Grade> getGradesForAdmin(@RequestParam("firstName") String firstName,
+                                         @RequestParam("lastName") String lastName) {
+        Student student = this.userService.getStudent(firstName, lastName);
+        return this.gradesService.getGradeForAdmin(student);
     }
 }

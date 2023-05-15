@@ -1,5 +1,6 @@
 package ip.studentplatform.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,9 +29,11 @@ public class Grade {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
+    @JsonIgnore
     Student student;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_mat")
+    @JsonIgnore
     Materie materie;
 }

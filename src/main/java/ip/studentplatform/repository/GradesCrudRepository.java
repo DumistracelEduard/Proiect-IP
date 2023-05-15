@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 @Transactional
 public interface GradesCrudRepository extends CrudRepository<Grade, Integer>, ICrudRepositoryGrades {
     @Modifying
@@ -21,4 +23,7 @@ public interface GradesCrudRepository extends CrudRepository<Grade, Integer>, IC
     @Modifying
     @Query("UPDATE Grade g SET g.grade=:grade, g.approvedGrade=false, g.flagGrade = false WHERE g.student=:student and g.materie=:materie")
     int updateGrade(int grade, Student student, Materie materie);
+
+    @Query("SELECT g FROM Grade g WHERE g.student=:student and g.approvedGrade=false")
+    List<Grade> getGradeForAdmin(Student student);
 }
