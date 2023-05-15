@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.lang.reflect.Array;
 import java.security.Principal;
 import java.util.List;
 
@@ -60,6 +61,28 @@ public class GradesController {
         grade1.setStudent(student);
 
         this.gradesService.addGrades(grade1);
+    }
+
+    @PreAuthorize("hasAuthority('profesor')")
+    @PutMapping("/addGradeMultiple")
+    public void addGradeMultiple(@RequestParam("grade") int grade,
+                         @RequestParam("firstName") List<String> firstName,
+                         @RequestParam("lastName") List<String> lastName,
+                         @RequestParam("materie") String materie) {
+
+        Materie materie1 = this.classService.getMaterie(materie);
+        for(int i = 0; i < firstName.size(); ++i) {
+            Student student = this.userService.getStudent(firstName.get(i), lastName.get(i));
+
+            Grade grade1 = new Grade();
+            grade1.setGrade(grade);
+            grade1.setApprovedGrade(false);
+            grade1.setMaterie(materie1);
+            grade1.setStudent(student);
+
+            this.gradesService.addGrades(grade1);
+        }
+
     }
 
     @PreAuthorize("hasAuthority('profesor')")
