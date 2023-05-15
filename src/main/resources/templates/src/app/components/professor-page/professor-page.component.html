@@ -1,106 +1,78 @@
 <div style="position:absolute; top: 2%; left: 4%; color:white; font-size: 2.5vmin">
-  <h1>
-      @StudentPlatform
-  </h1>
-  <h4>
-      Platforma catalog online
-  </h4>
+    <h1>
+        @StudentPlatform
+    </h1>
+    <h4>
+        Platforma catalog online
+    </h4>
 </div>
 
 <div style="position:absolute; top: 15%; left: 4%; color:white; font-size: 3.5vmin">
-  <h4>
-      [NUME] [PRENUME] profesor
-  </h4>
+    <h4>
+        [NUME] [PRENUME] profesor
+    </h4>
 </div>
 
 
 <!-- <img id="logo" src="./assets/poli5.png"> -->
 
 <div class="container_pic">
-  <img src="./assets/poli5.png" >
-  <a href="./">Log Out</a>
+    <img src="./assets/poli5.png">
+    <a href="./">Log Out</a>
 </div>
 
 
 <div id="student_text_box">
-  <form>
-      <div class="field">
-          Utilizator<span class="mandatory">*</span>
-      </div>
-      <input type="text" id="lname" name="Nume" placeholder="Utilizator" required>
+    <form [formGroup]="form" (ngSubmit)="addGrade()">
+        <div class="field">
+            Nume<span class="mandatory">*</span>
+        </div>
+        <input type="text" placeholder="Popescu" required formControlName="lastName">
 
-      <div class="field">
-        Materie<span class="mandatory">*</span>
-    </div>
-    <input type="text" id="lname" name="Materie" placeholder="Materie" required>
+        <div class="field">
+            Prenume<span class="mandatory">*</span>
+        </div>
+        <input type="text" placeholder="Ion" required formControlName="firstName">
 
-    <div class="field">
-      Nota<span class="mandatory">*</span>
-  </div>
-  <input type="text" id="lname" name="Nota" placeholder="Nota" required>
-  </form>
+        <div class="field">
+            Materie<span class="mandatory">*</span>
+        </div>
 
-</div>
+        <select name="strings" formControlName="materie">
+            <option value="" disabled selected>-- Alegeți o materie --</option>
+            <option *ngFor="let str of subjects" [value]="str">{{str}}</option>
+        </select>
 
+        <div class="field">
+            Nota<span class="mandatory">*</span>
+        </div>
+        <input type="number" min="1" max="10" placeholder="10" required formControlName="grade">
 
-<div id="Buton-salvare-nota">
-<button action="/action_page.php">
-  <label for="fname">Salveaza nota</label><br>
-</button>
+        <button type="submit" id="Buton-salvare-nota">Salveaza nota</button>
+    </form>
 </div>
 
 <p>Contact: <a href="url">secretariat [ at ] acs.pub.ro</a></p>
 
+<div class="selectBox" (click)=showCheckboxes()>
+    <button id="Buton-lista">Ascunde lista studenti</button>
+</div>
 
 <form>
-    <div class="selectBox" (click)=showCheckboxes()>
-      <select>
-        <option>Ascunde lista de studenti</option>
-      </select>
-      <div class="overSelect"></div>
+    <div style="position:absolute; top: 21%; left: 57%; color:rgb(76, 74, 74); font-size: 2.5vmin">
+        <h2>
+            Notare multipla:
+        </h2>
     </div>
+
+    <input type="text" id="textbox-nota" name="fname" placeholder="10"><br>
+
+    <input type="text" id="textbox-materie" name="fname" placeholder="Numele materiei"><br>
+
     <div id="checkboxes">
-      <label for="one">
-        <input type="checkbox" id="one" />First checkbox</label>
-      <label for="two">
-        <input type="checkbox" id="two" />Second checkbox</label>
-      <label for="three">
-        <input type="checkbox" id="three" />Third checkbox</label>
-        
-  </div>
+<!--        <option value="" disabled selected>&#45;&#45; Alegeți o materie &#45;&#45;</option>-->
+        <option *ngFor="let str of students" [value]="str">{{str}}</option>
+    </div>
+
+    <button type="submit" id="Buton-salvare">Salveaza note</button>
 </form>
-
-<div style="position:absolute; top: 21%; left: 57%; color:rgb(76, 74, 74); font-size: 2.5vmin">
-  <h2>
-     Notare multipla:
-  </h2>
-</div>
-
-<div id="Buton-nota">
-<form action="/action_page.php">
-  <label for="fname">Nota: </label><br>
-  <input type="text" id="fname" name="fname" value="10"><br>
-</form>
-
-</div>
-
-<div id="Buton-materie">
-<form action="/action_page.php">
-  <label for="fname">Materie: </label><br>
-  <input type="text" id="fname" name="fname" value="Numele materiei"><br>
-</form>
-</div>
-
-<div id="Buton-salvare">
-<button action="/action_page.php">
-  <label for="fname">Salveaza note</label><br>
-</button>
-</div>
- 
-<script>
-var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-   $http.get("customers_mysql.php")
-   .then(function (response) {$scope.names = response.data.records;});
-});
-</script>

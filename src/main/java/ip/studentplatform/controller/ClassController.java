@@ -29,26 +29,26 @@ public class ClassController {
     private EmailSenderService senderService;
 
     @PreAuthorize("hasAuthority('admin')")
-    @PutMapping("/addStudent")
-    public void addStudent(@RequestParam(name = "name") String name, @RequestParam(name = "nameMaterie") String nameMaterie) {
-        List<Materie> materies = this.classService.findListMaterie(name);
-        Materie materie = this.classService.getMaterie(nameMaterie);
-        for (Materie materieSearch :materies) {
-            if(materieSearch.getId_mat() == materie.getId_mat()) {
+    @PostMapping("/addStudent")
+    public void addStudent(@RequestParam(name = "username") String name, @RequestParam(name = "subject") String subjectName) {
+        List<Materie> subjects = this.classService.findListMaterie(name);
+        Materie subject = this.classService.getMaterie(subjectName);
+        for (Materie subjectSearch :subjects) {
+            if(subjectSearch.getId_mat() == subject.getId_mat()) {
                 return;
             }
         }
-        materies.add(materie);
-        this.classService.addStudentClass(name, materies);
+        subjects.add(subject);
+        this.classService.addStudentClass(name, subjects);
     }
 
     @PreAuthorize("hasAuthority('admin')")
-    @PutMapping("/addProfessorToClass")
-    public void addProfessor(@RequestParam(name = "name") String name, @RequestParam(name = "numeMaterie") String nameMaterie) {
-        Materie materie = this.classService.getMaterie(nameMaterie);
-        List<Materie> materies = this.userService.findListMaterieProfessor(name);
-        this.classService.updateMaterie(materie.getId_mat(), this.userService.findByFirstname(name));
-        materies.add(materie);
+    @PostMapping("/addProfessorToClass")
+    public void addProfessor(@RequestParam(name = "username") String name, @RequestParam(name = "subject") String subjectName) {
+        Materie subject = this.classService.getMaterie(subjectName);
+        List<Materie> subjects = this.userService.findListMaterieProfessor(name);
+        this.classService.updateMaterie(subject.getId_mat(), this.userService.findByFirstname(name));
+        subjects.add(subject);
     }
 
     @GetMapping("/getMaterie")

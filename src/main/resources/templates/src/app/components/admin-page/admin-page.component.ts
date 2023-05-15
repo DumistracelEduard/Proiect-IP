@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {FormGroup} from '@angular/forms';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
     selector: 'app-admin-page',
@@ -12,16 +13,24 @@ import {FormGroup} from '@angular/forms';
 export class AdminPageComponent {
 
     strings: string[] = [];
-    // form: FormGroup;
+    form: FormGroup;
 
-    constructor(private http: HttpClient) {
+    constructor(public fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {
+        this.form = this.fb.group({
+            username: [''],
+            role:[''],
+            subject: [''],
+        });
     }
 
-    // var express = require('express')
-    // var cors = require('cors')
-    // var app = express()
-    //
-    // app.use(cors())
+    showSnackbar(content: string, action: string, duration: number) {
+        this.snackBar.open(content, action, {
+            duration: duration,
+            verticalPosition: 'bottom',
+            horizontalPosition: 'left',
+            panelClass: ['snackbar']
+        });
+    }
 
     ngOnInit() {
         this.http.get<string[]>('http://localhost:8082/class/getMaterie').subscribe(data => {
@@ -30,35 +39,57 @@ export class AdminPageComponent {
         });
     }
 
-    // constructor(public fb: FormBuilder, private http: HttpClient) {
-    //     this.form = this.fb.group({
-    //         name: [''],
-    //         avatar: [null],
-    //     });
-    // }
+    uploadCustomersData(fileInput: any) {
+        const file = fileInput.files[0];
+        const formData = new FormData();
+        formData.append('file', file, file.name);
 
+        this.http.post('http://localhost:8082/user/upload-customers-data', formData).subscribe({
+                next: (response) => {
+                    console.log(response);
+                    this.showSnackbar('Incarcare fisier .xlsx realizata cu succes!', 'Ok', 5000);
+                },
+                error: (error) => {
+                    console.log(error);
+                    this.showSnackbar('EROARE: fisierul .xlsx contine utilizatori deja inregistrati SAU este gol.', 'Ok', 5000);
+                },
+            }
+        );
+    }
 
-    // uploadCustomersData(fileInput: any) {
-    //     const file = fileInput.files[0];
-    //     const formData = new FormData();
-    //     formData.append('file', file, file.name);
-    //
-    //     this.http.post('http://localhost:8082/user/upload-customers-data', formData).subscribe(response => {
-    //         console.log(response);
-    //     });
-    // }
+    enrollSubject() {
+        const formData: any = new FormData();
 
+        const username = this.form.get('username')!.value;
+        const role = this.form.get('role')!.value;
+        const subject = this.form.get('subject')!.value;
 
-    // manualEnroll() {
-    //   const formData: any = new FormData();
-    //   formData.append('name', this.form.get('name').value);
-    //   formData.append('avatar', this.form.get('avatar').value);
-    //   this.http
-    //     .post('http://localhost:8082/class/addStudent', formData)
-    //     .subscribe({
-    //       next: (response) => console.log(response),
-    //       error: (error) => console.log(error),
-    //     });
-    // }
+        console.log(username + " " + role + " " + subject);
 
+        if (username != "" && subject != "") {
+            formData.append('username', username);
+            formData.append('subject', subject)
+
+            let url = 'http://localhost:8082/class/';
+            if (role == 'student') {
+                url = url.concat('addStudent');
+            } else {
+                url = url.concat('addProfessorToClass');
+            }
+
+            console.log(url);
+
+            this.http.post(url, formData)
+                .subscribe({
+                    next: (response) => {
+                        console.log(response);
+                        this.showSnackbar('Utilizatorul ' + username + ' a fost inrolat la materia ' + subject, 'Ok', 5000);
+                    },
+                    error: (error) => {
+                        console.log(error);
+                        this.showSnackbar("EROARE: Utilizatorul " + username + " este deja inrolat la materia " + subject, 'Ok', 5000);
+                    },
+                });
+        }
+    }
 }

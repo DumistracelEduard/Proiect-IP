@@ -26,8 +26,8 @@ export class ChangePassw1Component {
     showSnackbar(content: string, action: string, duration: number) {
         this.snackBar.open(content, action, {
             duration: duration,
-            verticalPosition: 'bottom', // Allowed values are  'top' | 'bottom'
-            horizontalPosition: 'left', // Allowed values are 'start' | 'center' | 'end' | 'left' | 'right'
+            verticalPosition: 'bottom',
+            horizontalPosition: 'left',
             panelClass: ['snackbar']
         });
     }
