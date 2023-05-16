@@ -18,9 +18,9 @@ a {
 #username_text_box {
   margin-top: 15%;
   margin-left: 3%;
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: #f2f2f2;
-  padding: 60px;
+  padding: 65px;
   width: 43%;
 }
 
@@ -59,9 +59,10 @@ input[type=text], select, textarea {
   position: absolute;
   top: 25%;
   left: 65%;
-  color: rgb(10, 0, 1);
-  padding: 7px;
-  background: rgb(59, 162, 235);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 10px;
+  background: #0441aa;
   border: 0 solid rgb(254, 254, 254);
 }
 
@@ -123,7 +124,7 @@ table {
 
 .container {
   overflow-y: auto;
-  height: 200px;
+  height: 320px;
   position:absolute;
   padding: 02rem 0rem;
   top : 50%;
@@ -134,7 +135,7 @@ table {
 }
 
 h3 {
-  margin: 0rem 0rem ;
+  margin: 1rem 0rem ;
 }
 
 .table-image {
