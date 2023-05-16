@@ -14,13 +14,14 @@ a {
     text-decoration: none;
 }
 
+
 #username_text_box {
   margin-top: 15%;
-  margin-left: 10%;
+  margin-left: 3%;
   border-radius: 20px;
   background-color: #f2f2f2;
-  padding: 20px;
-  width: 35%;
+  padding: 60px;
+  width: 43%;
 }
 
 #drop_down {
@@ -34,12 +35,12 @@ a {
 
 input[type=text], select, textarea {
   width: 90%;
-  padding: 12px;
+  padding: 17px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
+  margin-top: 8px;
+  margin-bottom: 18px;
   resize: vertical;
 }
 
@@ -51,6 +52,7 @@ input[type=text], select, textarea {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 8%;
 }
 
 #tooltip {
