@@ -38,7 +38,14 @@ public class ClassController {
                 return;
             }
         }
+        if(subjects.size() == 0) {
+            subjects = new ArrayList<Materie>();
+        }
         subjects.add(subject);
+        for (Materie subjectSearch :subjects) {
+            System.out.println(subjectSearch);
+        }
+
         this.classService.addStudentClass(name, subjects);
     }
 

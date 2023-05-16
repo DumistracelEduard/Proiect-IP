@@ -36,4 +36,7 @@ public class Grade {
     @JoinColumn(name = "id_mat")
     @JsonIgnore
     Materie materie;
+
+    @Column(name = "nameMaterie")
+    String nameMaterie;
 }

@@ -61,6 +61,6 @@ public class Student extends User{
         this.address = address;
         this.serie = serie;
         this.grupa = grupa;
-        this.materies = new ArrayList<>();
+        this.materies = new ArrayList<Materie>();
     }
 }
