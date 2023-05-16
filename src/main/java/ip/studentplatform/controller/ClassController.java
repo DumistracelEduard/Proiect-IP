@@ -78,4 +78,9 @@ public class ClassController {
                 "Flag Grade",
                 "Student " + student.getFirstName() + " " + student.getLastName() + " flag Grade " + nameMaterie);
     }
+
+    @GetMapping("/getMaterieName")
+    public String getMateriName(@RequestParam("id") int id) {
+        return this.classService.getMateriByID(id).getNameMaterie();
+    }
 }

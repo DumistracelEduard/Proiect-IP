@@ -38,5 +38,10 @@ public class ClassService {
         return this.iCrudRepositoryClass.addFlagGrade(student, materie, flag);
     }
 
+    public Materie getMateriByID(int id) {
+        return this.iCrudRepositoryClass.getMateriByID(id);
+    }
+
+
 
 }

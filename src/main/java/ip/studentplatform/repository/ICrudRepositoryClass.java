@@ -17,4 +17,6 @@ public interface ICrudRepositoryClass {
 
     int addFlagGrade(Student student, Materie materie, Boolean flag);
 
+    Materie getMateriByID(int id);
+
 }

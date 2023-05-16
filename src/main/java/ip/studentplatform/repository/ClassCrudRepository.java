@@ -34,4 +34,7 @@ public interface ClassCrudRepository extends CrudRepository<User, Integer>, ICru
     @Modifying
     @Query("UPDATE Grade g SET g.flagGrade=:flag WHERE g.student=:student and g.materie =:materie")
     int addFlagGrade(Student student, Materie materie, Boolean flag);
+
+    @Query("SELECT m FROM Materie m WHERE m.id_mat=:id")
+    Materie getMateriByID(int id);
 }
