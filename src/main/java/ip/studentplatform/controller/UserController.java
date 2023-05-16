@@ -28,15 +28,13 @@ public class UserController {
     private EmailSenderService senderService;
     @PreAuthorize("hasAuthority('admin')")
     @PostMapping("/upload-customers-data")
-    public ResponseEntity<?> uploadCustomersData(@RequestParam("file") MultipartFile file){
+    public void uploadCustomersData(@RequestParam("file") MultipartFile file){
         List<User> users = this.userService.saveCustomersToDatabase(file);
         for(User user:users) {
             senderService.sendSimpleEmail(user.getEmail(),
                     "StudentPlatform",
                     "USER: "+ user.getUsername() +"\nPassword:"+user.getInitialPassword());
         }
-        return ResponseEntity
-                .ok(Map.of("Message" , " Customers data uploaded and saved to database successfully"));
     }
 
     @GetMapping("/getUser")

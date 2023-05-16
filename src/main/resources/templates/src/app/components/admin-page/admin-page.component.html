@@ -74,8 +74,7 @@
 
     <div id="upload">
         <div class="addfile">
-            <form method="POST" action="http://localhost:8082/user/upload-customers-data" enctype="multipart/form-data"
-                  id="fileEnroll">
+            <form>
                 <label for="file">Selectați un fișier:</label><br>
                 <input type="file" id="file" name="file" accept=".xlsx" #fileInput><br><br>
                 <button type="submit" (click)="uploadCustomersData(fileInput)" id="button2">Trimite</button>
