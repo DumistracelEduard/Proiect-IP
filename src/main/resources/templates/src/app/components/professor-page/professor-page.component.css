@@ -215,15 +215,17 @@ button[type=Trimitere] {
 
 #Buton-salvare {
     position: absolute;
-    padding: 3px 10px;
+    padding: 2px 20px;
     left: 82%;
     border-radius: 20px;
     top: 81%;
-    border: 0px #dadada solid;
-    background-color: #ebeae7;
-    width: 15%;
-    outline: #ebeae7 solid 25px;
+    border: 0px #0441aa solid;
+    background-color: #0441aa;
+    width: 13%;
+    outline : #0441aa solid 22px;
     font-size: medium;
+    color: white;
+    cursor: pointer;
 }
 
 
