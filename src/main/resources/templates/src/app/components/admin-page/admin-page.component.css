@@ -10,6 +10,10 @@
   color: red;
 }
 
+a {
+    text-decoration: none;
+}
+
 #username_text_box {
   margin-top: 15%;
   margin-left: 10%;
@@ -143,7 +147,7 @@ h3 {
   padding: 2px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center; 
+  text-align: center;
 
 }
 
@@ -185,7 +189,7 @@ thead{
 /* Style the button and place it in the middle of the container/image */
 .container_pic a {
   position: absolute;
-  
+
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #555;

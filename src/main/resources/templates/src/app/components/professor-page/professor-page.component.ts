@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {StudentObject} from './StudentObject'
+import {StudentObject} from '../StudentObject'
 import { ElementRef } from '@angular/core';
 
 @Component({
@@ -19,6 +19,7 @@ export class ProfessorPageComponent {
     students: string[] = [];
     selectedStudents: string[] = [];
 
+    name: string = '';
 
     form1: FormGroup;
     form2: FormGroup;
@@ -47,6 +48,17 @@ export class ProfessorPageComponent {
         });
     }
 
+    getName() {
+        this.http.get<any>('http://localhost:8082/user/getUserProf').subscribe(
+            response => {
+                this.name = response.lastName + " " + response.firstName;
+            },
+            error => {
+                console.error('Error fetching data:', error);
+            }
+        );
+    }
+
     ngOnInit() {
         this.http.get<string[]>('http://localhost:8082/class/getMaterie').subscribe(data => {
             this.subjects = data;
@@ -57,6 +69,8 @@ export class ProfessorPageComponent {
                 this.students.push(item.lastName + " " + item.firstName + " " + item.grupa);
             }
         });
+
+        this.getName();
     }
 
 

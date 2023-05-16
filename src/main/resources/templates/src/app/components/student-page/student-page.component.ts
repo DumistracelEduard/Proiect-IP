@@ -4,6 +4,7 @@ import {Calendar} from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {StudentObject} from '../StudentObject'
 
 @Component({
     selector: 'app-student-page',
@@ -13,10 +14,30 @@ import {HttpClient} from "@angular/common/http";
 export class StudentPageComponent implements OnInit {
     form: FormGroup;
     calendar!: Calendar;
+    name:string = '';
 
     constructor(public fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {
         this.form = this.fb.group({
+            cnp: [''],
+            phone: [''],
+            birth: [''],
+            iban: [''],
+            studies: [''],
+            dorm: [''],
+            room: ['']
         });
+
+    }
+
+    getName() {
+        this.http.get<any>('http://localhost:8082/user/getUserStudent').subscribe(
+            response => {
+                this.name = response.lastName + " " + response.firstName;
+            },
+            error => {
+                console.error('Error fetching data:', error);
+            }
+        );
     }
 
     ngOnInit(): void {
@@ -42,6 +63,8 @@ export class StudentPageComponent implements OnInit {
             });
             this.calendar.render();
         }
+
+        this.getName()
     }
 
     showSnackbar(content: string, action: string, duration: number) {
@@ -73,18 +96,28 @@ export class StudentPageComponent implements OnInit {
 
     updateInfo() {
         const formData: any = new FormData();
+        console.log(this.form.value)
 
-        formData.append('highSchool', this.form.get('studies')!.value);
-        formData.append('room', this.form.get('room')!.value);
-        formData.append('dorm', this.form.get('dorm')!.value);
-        formData.append('phoneNumber', this.form.get('phone')!.value);
-        formData.append('cnp', this.form.get('cnp')!.value);
-        formData.append('birthday', this.form.get('birth')!.value);
-        formData.append('iban', this.form.get('iban')!.value);
+        const formValues = this.form.value;
+        const cnp = formValues.cnp;
+        const phone = formValues.phone;
+        const birth = formValues.birth;
+        const iban = formValues.iban;
+        const studies = formValues.studies;
+        const dorm = formValues.dorm;
+        const room = formValues.room;
+
+        formData.append('highSchool', studies);
+        formData.append('room', room);
+        formData.append('dorm', dorm);
+        formData.append('phoneNumber', phone);
+        formData.append('cnp', cnp);
+        formData.append('birthday', birth);
+        formData.append('iban', iban);
 
         let url = 'http://localhost:8082/user/putData';
 
-        this.http.put(url, formData)
+        this.http.post(url, formData)
             .subscribe({
                 next: (response) => {
                     console.log(response);

@@ -23,7 +23,8 @@
         @StudentPlatform
     </h1>
     <h4>
-        Platforma catalog online
+        Platforma catalog online<br>
+        <div>Student {{ name }}</div>
     </h4>
     <h3>
         Date personale
@@ -38,18 +39,21 @@
 
 <div class="container">
     <form [formGroup]="form" (ngSubmit)="updateInfo()" id="loginForm">
-        <table formGroupName="form">
+        <table>
             <tr>
                 <td align="right">CNP:</td>
-                <td align="left"><input type="text" name="cnp" (keypress)="validateNo($event)" maxlength="13" formControlName="cnp"></td>
+                <td align="left"><input type="text" name="cnp" (keypress)="validateNo($event)" maxlength="13"
+                                        formControlName="cnp"></td>
             </tr>
             <tr>
                 <td align="right">Număr de telefon:</td>
-                <td align="left"><input type="text" name="nr_tlf" (keypress)="validateNo($event)" maxlength="10" formControlName="phone"></td>
+                <td align="left"><input type="text" name="nr_tlf" (keypress)="validateNo($event)" maxlength="10"
+                                        formControlName="phone"></td>
             </tr>
             <tr>
                 <td align="right">Data nașterii:</td>
-                <td align="left"><input type="date" name="birth"  maxlength="11" placeholder="DD/MM/YYYY" formControlName="birth"></td>
+                <td align="left"><input type="date" name="birth" maxlength="11" placeholder="DD/MM/YYYY"
+                                        formControlName="birth"></td>
             </tr>
             <tr>
                 <td align="right">IBAN:</td>
@@ -65,11 +69,12 @@
             </tr>
             <tr>
                 <td align="right">Cameră</td>
-                <td align="left"><input type="text" name="room" (keypress)="validateNo($event)" formControlName="room"></td>
+                <td align="left"><input type="text" name="room" formControlName="room">
+                </td>
             </tr>
         </table>
 
-            <button type="submit" id="button1" (click)="updateInfo()">Salveaza</button>
+        <button type="submit" id="button1" (click)="updateInfo()">Salveaza</button>
     </form>
 
 </div>
@@ -79,14 +84,14 @@
 <div class="cal-modal-container">
     <h4>Structura anului scolar:</h4>
     <div class="cal-modal">
-      <h4>UPCOMING EVENTS</h4>
-      <div id="calendar">
-        <div class="placeholder"></div>
-        <div class="calendar-events">
+        <h4>UPCOMING EVENTS</h4>
+        <div id="calendar">
+            <div class="placeholder"></div>
+            <div class="calendar-events">
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  <p class="explanation"><strong>!</strong>Pentru a încărca modificările, nu uitați să salvați!</p>
+<p class="explanation"><strong>!</strong>Pentru a încărca modificările, nu uitați să salvați!</p>
 
