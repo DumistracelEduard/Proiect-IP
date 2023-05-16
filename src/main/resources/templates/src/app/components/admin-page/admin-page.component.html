@@ -88,6 +88,19 @@
 </div>
 
 <div class="container">
+
+    <form [formGroup]="formGrades" (ngSubmit)="getGradesByUser()">
+        <label>Nume de familie:</label>
+        <input type="text" value="" name="lastName" placeholder="Popescu" formControlName="lastName"
+               (keypress)="validateNo($event)" maxlength="50">
+
+        <label>Prenume:</label>
+        <input type="text" value="" name="firstName" placeholder="Ion" formControlName="firstName"
+               (keypress)="validateNo($event)" maxlength="50">
+
+        <button type="submit" id="button2">Afișează note neaprobate</button>
+    </form>
+
     <div class="aprobari_in_curs">
         <h4>Aprobari in curs:
         </h4>
@@ -104,52 +117,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td scope="row">Popescu Mihai</td>
-                    <td>SD</td>
-                    <td>8</td>
+                <tr *ngFor="let item of grades">
+                    <td>{{ item.grade }}</td>
+                    <td>{{ item.id_mat }}</td>
                     <td>
-                        <button id="table_button" type="button"><img id="image_button" src="./assets/first_button.png"
-                                                                     class="btn btn-primary"><i class="far fa-eye"></i>
-                        </button>
-                        <button id="table_button" type="button"><img id="image_button" src="./assets/second_button.png"
-                                                                     class="btn btn-success"><i class="fas fa-edit"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">Popescu Mihai</td>
-                    <td>SD</td>
-                    <td>8</td>
-                    <td>
-                        <button id="table_button" type="button"><img id="image_button" src="./assets/first_button.png"
-                                                                     class="btn btn-primary"><i class="far fa-eye"></i>
-                        </button>
-                        <button id="table_button" type="button"><img id="image_button" src="./assets/second_button.png"
-                                                                     class="btn btn-success"><i class="fas fa-edit"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">Popescu Mihai</td>
-                    <td>SD</td>
-                    <td>8</td>
-                    <td>
-                        <button id="table_button" type="button"><img id="image_button" src="./assets/first_button.png"
-                                                                     class="btn btn-primary"><i class="far fa-eye"></i>
-                        </button>
-                        <button id="table_button" type="button"><img id="image_button" src="./assets/second_button.png"
-                                                                     class="btn btn-success"><i class="fas fa-edit"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">Popescu Mihai</td>
-                    <td>SD</td>
-                    <td>8</td>
-                    <td>
-                        <button id="table_button" type="button"><img id="image_button" src="./assets/first_button.png"
-                                                                     class="btn btn-primary"><i class="far fa-eye"></i>
+                        <button id="table_button" type="button"><img id="image_button"
+                                                                     src="./assets/first_button.png"
+                                                                     class="btn btn-primary"><i
+                            class="far fa-eye"></i>
                         </button>
                         <button id="table_button" type="button"><img id="image_button" src="./assets/second_button.png"
                                                                      class="btn btn-success"><i class="fas fa-edit"></i>
