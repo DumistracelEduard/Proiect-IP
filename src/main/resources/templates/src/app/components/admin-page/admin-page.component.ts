@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {GradeObject} from "../GradeObject";
 
 @Component({
     selector: 'app-admin-page',
@@ -13,13 +14,23 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class AdminPageComponent {
 
     strings: string[] = [];
+    grades: GradeObject[] = [];
     form: FormGroup;
+    formGrades: FormGroup;
+
+    firstName: string = '';
+    lastName: string = '';
 
     constructor(public fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {
         this.form = this.fb.group({
             username: [''],
             role:[''],
             subject: [''],
+        });
+
+        this.formGrades = this.fb.group({
+            firstName: [''],
+            lastName:[''],
         });
     }
 
@@ -29,6 +40,32 @@ export class AdminPageComponent {
             verticalPosition: 'bottom',
             horizontalPosition: 'left',
             panelClass: ['snackbar']
+        });
+    }
+
+    validateNo(e: KeyboardEvent): boolean {
+        const charCode = e.which ? e.which : e.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return true
+        }
+        this.showSnackbar("Acest camp permite doar litere.", "Ok", 4000);
+        return false
+    }
+
+    getGradesByUser() {
+        this.firstName = this.formGrades.get('firstName')!.value;
+        this.lastName = this.formGrades.get('lastName')!.value;
+
+        const params = new HttpParams()
+            .set('firstName', this.firstName)
+            .set('lastName', this.lastName);
+
+        this.http.get<any[]>('http://localhost:8082/Grades/getGradesForAdmin', { params: params }).subscribe((data: GradeObject[]) => {
+            for (const item of data) {
+                this.grades.push(item);
+                console.log(item.grade)
+            }
+            // console.log(this.grades[0]);
         });
     }
 
