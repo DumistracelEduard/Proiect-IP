@@ -56,6 +56,7 @@ public class GradesController {
         grade1.setApprovedGrade(false);
         grade1.setMaterie(materie1);
         grade1.setStudent(student);
+        grade1.setFlagGrade(false);
 
         this.gradesService.addGrades(grade1);
     }
