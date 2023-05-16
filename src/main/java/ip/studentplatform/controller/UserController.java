@@ -43,6 +43,7 @@ public class UserController {
     public User getUserByUsername(@RequestParam(name = "name") String name) {
         return this.userService.getUser(name);
     }
+
     @GetMapping("/getListStudents")
     public List<Student> getStudentsList() {
         return this.userService.getStudentList();

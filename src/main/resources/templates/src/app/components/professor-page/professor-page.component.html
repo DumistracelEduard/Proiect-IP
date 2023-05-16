@@ -23,7 +23,7 @@
 
 
 <div id="student_text_box">
-    <form [formGroup]="form" (ngSubmit)="addGrade()">
+    <form [formGroup]="form1" (ngSubmit)="addGrade()">
         <div class="field">
             Nume<span class="mandatory">*</span>
         </div>
@@ -58,20 +58,22 @@
     <button id="Buton-lista">Ascunde lista studenti</button>
 </div>
 
-<form>
+<form [formGroup]="form2" (ngSubmit)="addMultipleGrades()">
     <div style="position:absolute; top: 21%; left: 57%; color:rgb(76, 74, 74); font-size: 2.5vmin">
         <h2>
             Notare multipla:
         </h2>
     </div>
 
-    <input type="text" id="textbox-nota" name="fname" placeholder="10"><br>
+    <input id="textbox-nota" type="number" min="1" max="10" placeholder="10" required formControlName="grade"><br>
 
-    <input type="text" id="textbox-materie" name="fname" placeholder="Numele materiei"><br>
+    <select id="textbox-materie" name="strings" formControlName="materie">
+        <option value="" disabled selected>-- Alegeți o materie --</option>
+        <option *ngFor="let str of subjects" [value]="str">{{str}}</option>
+    </select>
 
-    <div id="checkboxes">
-<!--        <option value="" disabled selected>&#45;&#45; Alegeți o materie &#45;&#45;</option>-->
-        <option *ngFor="let str of students" [value]="str">{{str}}</option>
+    <div id="checkboxes" *ngFor="let item of students; let i = index">
+        <input type="checkbox" [value]="item" (change)="updateSelectedStudents($event.target, item)" formControlName="studentName"> {{ item }}
     </div>
 
     <button type="submit" id="Buton-salvare">Salveaza note</button>

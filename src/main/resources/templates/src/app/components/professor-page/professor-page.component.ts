@@ -1,24 +1,38 @@
 import {Component} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {StudentObject} from './StudentObject'
+import { ElementRef } from '@angular/core';
 
 @Component({
     selector: 'app-professor-page',
     templateUrl: './professor-page.component.html',
     styleUrls: ['./professor-page.component.css']
 })
+
+
 export class ProfessorPageComponent {
     expanded = false;
 
     subjects: string[] = [];
     students: string[] = [];
-    form: FormGroup;
+    selectedStudents: string[] = [];
+
+
+    form1: FormGroup;
+    form2: FormGroup;
 
     constructor(public fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {
-        this.form = this.fb.group({
+        this.form1 = this.fb.group({
             firstName: [''],
-            lastName:[''],
+            lastName: [''],
+            materie: [''],
+            grade: 0,
+        });
+
+        this.form2 = this.fb.group({
+            entry: [''],
             materie: [''],
             grade: 0,
         });
@@ -36,29 +50,79 @@ export class ProfessorPageComponent {
     ngOnInit() {
         this.http.get<string[]>('http://localhost:8082/class/getMaterie').subscribe(data => {
             this.subjects = data;
-            console.log(this.subjects);
         });
 
-        this.http.get<string[]>('http://localhost:8082/user/getListStudents').subscribe(data => {
-            this.students = data;
-            console.log(this.students);
+        this.http.get<StudentObject[]>('http://localhost:8082/user/getListStudents').subscribe((data: StudentObject[]) => {
+            for (const item of data) {
+                this.students.push(item.lastName + " " + item.firstName + " " + item.grupa);
+            }
+        });
+    }
+
+
+    updateSelectedStudents(target: EventTarget | null, student: string) {
+        const checkbox = target as HTMLInputElement;
+        const checked = checkbox.checked;
+
+        if (checked) {
+            this.selectedStudents.push(student);
+        } else {
+            const index = this.selectedStudents.indexOf(student);
+            if (index !== -1) {
+                this.selectedStudents.splice(index, 1);
+            }
+        }
+    }
+
+    addMultipleGrades() {
+        const formData: any = new FormData();
+
+        const grade = this.form2.get('grade')!.value;
+        const subject = this.form2.get('materie')!.value;
+        const firstNameList: string[] = [];
+        const lastNameList: string[] = [];
+
+        console.log(this.selectedStudents);
+
+        this.selectedStudents.forEach(studentName => {
+            firstNameList.push(studentName.split(" ")[0]);
+            lastNameList.push(studentName.split(" ")[1]);
         })
+
+        formData.append('grade', grade);
+        formData.append('firstName', firstNameList);
+        formData.append('lastName', lastNameList);
+        formData.append('materie', subject);
+
+        let url = 'http://localhost:8082/Grades/addGradeMultiple';
+
+        this.http.put(url, formData)
+            .subscribe({
+                next: (response) => {
+                    console.log(response);
+                    this.showSnackbar("Nota " + grade + " acordată studentilor selectati", 'Ok', 5000);
+                },
+                error: (error) => {
+                    console.log(error);
+                    this.showSnackbar("EROARE: Există deja studenți cu note acordate la materia selectată", 'Ok', 5000);
+                },
+            });
     }
 
     addGrade() {
         const formData: any = new FormData();
 
-        const firstname = this.form.get('firstName')!.value;
-        const lastname = this.form.get('lastName')!.value;
-        const grade = this.form.get('grade')!.value;
-        const subject = this.form.get('materie')!.value;
+        const firstname = this.form1.get('firstName')!.value;
+        const lastname = this.form1.get('lastName')!.value;
+        const grade = this.form1.get('grade')!.value;
+        const subject = this.form1.get('materie')!.value;
 
         console.log(firstname + " " + lastname + " " + subject + " " + grade);
 
         if (firstname != "" && subject != "") {
             formData.append('grade', grade);
-            formData.append('firstName', grade);
-            formData.append('lastName', grade);
+            formData.append('firstName', firstname);
+            formData.append('lastName', lastname);
             formData.append('materie', subject);
 
             let url = 'http://localhost:8082/Grades/addGrade';
