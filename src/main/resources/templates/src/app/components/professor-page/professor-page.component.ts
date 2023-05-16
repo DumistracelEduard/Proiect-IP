@@ -86,6 +86,8 @@ export class ProfessorPageComponent {
                 this.selectedStudents.splice(index, 1);
             }
         }
+
+        console.log(this.selectedStudents)
     }
 
     addMultipleGrades() {

@@ -58,7 +58,7 @@
     <button id="Buton-lista">Ascunde lista studenti</button>
 </div>
 
- 
+
 <form [formGroup]="form2" (ngSubmit)="addMultipleGrades()">
     <div style="position:absolute; top: 21%; left: 57%; color:rgb(76, 74, 74); font-size: 2.5vmin">
         <h2>
@@ -81,9 +81,27 @@
         <option *ngFor="let str of subjects" [value]="str">{{str}}</option>
     </select>
 
-    <div id="checkboxes" *ngFor="let item of students; let i = index">
-        <input type="checkbox" [value]="item" (change)="updateSelectedStudents($event.target, item)" formControlName="studentName"> {{ item }}
-    </div>
+    <table id="checkboxes">
+        <thead>
+        <tr>
+            <th scope="col"> Nume student</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of students">
+            <td><input type="checkbox" [value]="item" (change)="updateSelectedStudents($event.target, item)"> {{ item }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--    <select id="checkboxes" name="strings">-->
+    <!--        <option value="" disabled selected>&#45;&#45; Bifați studenții &#45;&#45;</option>-->
+    <!--        <option *ngFor="let item of students" (change)="updateSelectedStudents($event.target, item)" formControlName="studentName"> {{ item }}-->
+    <!--    </select>-->
+
+    <!--    <div id="checkboxes" *ngFor="let item of students; let i = index">-->
+    <!--        <input type="checkbox" [value]="item" (change)="updateSelectedStudents($event.target, item)" formControlName="studentName"> {{ item }}-->
+    <!--    </div>-->
 
     <button type="submit" id="Buton-salvare">Salveaza note</button>
 </form>
