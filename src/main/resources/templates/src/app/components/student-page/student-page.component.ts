@@ -41,25 +41,85 @@ export class StudentPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        var i:number;
         const calendarEl = document.getElementById('calendar');
         if (calendarEl) {
+            const events: { title: string; date: string }[] = [];
+
+            const startDate = new Date('2022-12-24');
+            const endDate = new Date('2023-01-08');
+            const currentDate = new Date(startDate);
+
+            while (currentDate <= endDate) {
+            events.push({
+                title: 'Vacanta iarna',
+                date: currentDate.toISOString().split('T')[0]
+                });
+
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+        const startDate1 = new Date('2023-01-21');
+        const endDate1 = new Date('2023-02-10');
+        const currentDate1 = new Date(startDate1);
+
+            while (currentDate1 <= endDate1) {
+            events.push({
+                title: 'Sesiunea de examene',
+                date: currentDate1.toISOString().split('T')[0]
+                });
+
+        currentDate1.setDate(currentDate1.getDate() + 1);
+    }
+
+    const startDate2 = new Date('2023-02-11');
+        const endDate2 = new Date('2023-02-26');
+        const currentDate2 = new Date(startDate2);
+
+            while (currentDate2 <= endDate2) {
+            events.push({
+                title: 'Vacanta inter-semestriala',
+                date: currentDate2.toISOString().split('T')[0]
+                });
+
+        currentDate2.setDate(currentDate2.getDate() + 1);
+    }
+
+    events.push({
+        title: "Semestrul II",
+        date: '2023-02-27'
+    })
+
+    const startDate3 = new Date('2023-06-03');
+        const endDate3 = new Date('2023-06-23');
+        const currentDate3 = new Date(startDate3);
+
+            while (currentDate3 <= endDate3) {
+            events.push({
+                title: 'Sesiunea de examene',
+                date: currentDate3.toISOString().split('T')[0]
+                });
+
+        currentDate3.setDate(currentDate3.getDate() + 1);
+    }
+
+    const startDate4 = new Date('2023-06-26');
+        const endDate4 = new Date('2023-10-02');
+        const currentDate4 = new Date(startDate4);
+
+            while (currentDate4 <= endDate4) {
+            events.push({
+                title: 'Vacanta de vara',
+                date: currentDate4.toISOString().split('T')[0]
+                });
+
+        currentDate4.setDate(currentDate4.getDate() + 1);
+    }
+
             this.calendar = new Calendar(calendarEl, {
                 plugins: [dayGridPlugin],
                 initialView: 'dayGridMonth',
-                events: [
-                    {
-                        title: 'Event 1, Location',
-                        date: '2023-05-01'
-                    },
-                    {
-                        title: 'Event 2, Location 2',
-                        date: '2023-05-01'
-                    },
-                    {
-                        title: 'Event 2, Location 3',
-                        date: '2023-06-24'
-                    }
-                ]
+                events
             });
             this.calendar.render();
         }
