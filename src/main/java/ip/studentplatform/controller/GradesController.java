@@ -106,4 +106,6 @@ public class GradesController {
         Student student = this.userService.getStudent(firstName, lastName);
         return this.gradesService.getGradeForAdmin(student);
     }
+
+
 }

@@ -1,5 +1,6 @@
 package ip.studentplatform.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +22,7 @@ public class Professor extends User{
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_mat")
+    @JsonIgnore
     List<Materie> materies;
 
     public Professor(int id_user, String password, String username,

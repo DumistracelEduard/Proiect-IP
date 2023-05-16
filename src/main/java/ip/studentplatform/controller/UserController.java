@@ -126,4 +126,14 @@ public class UserController {
                 "StudentPlatform",
                 "Reset password:" + sb.toString() + "\n");
     }
+
+    @GetMapping("/getUserProf")
+    public User getUserProf(Principal principal) {
+        return this.userService.getUser(principal.getName());
+    }
+
+    @GetMapping("/getUserStudent")
+    public User getUserStudent(Principal principal) {
+        return this.userService.getUser(principal.getName());
+    }
 }
