@@ -4,6 +4,7 @@ export interface GradeObject {
     flag: boolean,
     grade: number,
     id_mat: any,
-    id: any
+    id: any,
+    nameMaterie: string
 }
 

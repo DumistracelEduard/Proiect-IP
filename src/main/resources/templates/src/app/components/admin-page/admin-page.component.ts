@@ -21,16 +21,18 @@ export class AdminPageComponent {
     firstName: string = '';
     lastName: string = '';
 
+    subject_names: { [key: number]: string } = {};
+
     constructor(public fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {
         this.form = this.fb.group({
             username: [''],
-            role:[''],
+            role: [''],
             subject: [''],
         });
 
         this.formGrades = this.fb.group({
             firstName: [''],
-            lastName:[''],
+            lastName: [''],
         });
     }
 
@@ -56,17 +58,33 @@ export class AdminPageComponent {
         this.firstName = this.formGrades.get('firstName')!.value;
         this.lastName = this.formGrades.get('lastName')!.value;
 
-        const params = new HttpParams()
+        const params1 = new HttpParams()
             .set('firstName', this.firstName)
             .set('lastName', this.lastName);
 
-        this.http.get<any[]>('http://localhost:8082/Grades/getGradesForAdmin', { params: params }).subscribe((data: GradeObject[]) => {
+        this.http.get<GradeObject[]>('http://localhost:8082/Grades/getGradesForAdmin', {params: params1}).subscribe((data: GradeObject[]) => {
             for (const item of data) {
                 this.grades.push(item);
-                console.log(item.grade)
             }
-            // console.log(this.grades[0]);
         });
+    }
+
+    approveGrade(nameMaterie: string) {
+        const formData = new FormData();
+        formData.append("firstName", this.firstName);
+        formData.append("lastName", this.lastName);
+        formData.append("materie", nameMaterie);
+
+        this.http.put("http://localhost:8082/Grades/approvedGrades", formData).subscribe({
+            next: (response) => {
+                console.log(response);
+                this.showSnackbar('Notă aprobată.', 'Ok', 5000);
+            },
+            error: (error) => {
+                console.log(error);
+                this.showSnackbar('EROARE: Aprobarea nu a fost realizată cu succes.', 'Ok', 5000);
+            },
+        })
     }
 
     ngOnInit() {
