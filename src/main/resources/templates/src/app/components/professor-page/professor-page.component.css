@@ -57,6 +57,7 @@ input[type=text], select, textarea {
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
+    font-size: medium;
 }
 input[type=number], select, textarea {
     width: 90%;
@@ -149,6 +150,7 @@ button[type=Trimitere] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: medium;
 }
 
 #Buton-lista {
@@ -159,40 +161,67 @@ button[type=Trimitere] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: medium;
 }
 
 #textbox-nota {
     position: absolute;
     padding: 5px 20px;
-    left: 55.9%;
+    left: 58%;
     border-radius: 20px;
     top: 32%;
     border: 1px #dadada solid;
-    background-color: #ebeae7;
-    width: 20%;
+    background-color: white;
+    width: 18%;
+    outline: #ebeae7 solid 30px;
+    font-size: medium;
+    z-index: 10; 
 }
+
+.field_form2_nota {
+    position: absolute;
+    font-size: large;
+    left: 58%;
+    top: 30%;
+    z-index: 15;
+}
+
+.field_form2_materie {
+    position: absolute;
+    font-size: large;
+    left: 80%;
+    top: 30%;
+    z-index: 15;
+}
+
 
 #textbox-materie {
     position: absolute;
     padding: 5px 20px;
-    left: 75.9%;
+    left: 80%;
     border-radius: 20px;
     top: 32%;
     border: 1px #dadada solid;
-    background-color: #ebeae7;
-    width: 20%;
+    background-color: white;
+    width: 18%;
+    outline: #ebeae7 solid 30px;
+    font-size: medium;
 }
 
 #Buton-salvare {
     position: absolute;
     padding: 3px 10px;
-    left: 59.9%;
+    left: 68%;
     border-radius: 20px;
     top: 71%;
-    border: 1px #dadada solid;
+    border: 0px #dadada solid;
     background-color: #ebeae7;
     width: 20%;
+    outline: #ebeae7 solid 25px;
+    font-size: medium;
 }
+
+
 
 #checkboxes {
     position: absolute;
@@ -247,6 +276,8 @@ button[type=Trimitere] {
     margin-top: 3%;
     margin-left: 95%;
     width: 4%;
+    text-align: center;
+    font-size: medium;
 }
 
 .container a:hover {
