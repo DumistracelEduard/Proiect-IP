@@ -1,6 +1,7 @@
 package ip.studentplatform.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -49,6 +50,7 @@ public class Student extends User{
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_mat")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JsonIgnore
     List<Materie> materies;
 
@@ -61,6 +63,6 @@ public class Student extends User{
         this.address = address;
         this.serie = serie;
         this.grupa = grupa;
-        this.materies = new ArrayList<Materie>();
+        this.materies = null;
     }
 }

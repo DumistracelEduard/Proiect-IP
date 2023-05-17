@@ -45,8 +45,8 @@ public class ClassController {
         for (Materie subjectSearch :subjects) {
             System.out.println(subjectSearch);
         }
-
-        this.classService.addStudentClass(name, subjects);
+        System.out.println(name);
+        //this.classService.addStudentClass(name, subjects);
     }
 
     @PreAuthorize("hasAuthority('admin')")

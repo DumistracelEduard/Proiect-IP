@@ -71,8 +71,7 @@ public class GradesController {
 
         Materie materie1 = this.classService.getMaterie(materie);
         for(int i = 0; i < firstName.size(); ++i) {
-            Student student = this.userService.getStudent(firstName.get(i), lastName.get(i));
-
+            Student student = this.userService.getStudent(lastName.get(i), firstName.get(i));
             Grade grade1 = new Grade();
             grade1.setGrade(grade);
             grade1.setApprovedGrade(false);

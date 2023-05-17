@@ -15,7 +15,7 @@ public class ClassService {
     ICrudRepositoryClass iCrudRepositoryClass;
 
     public void addStudentClass(String name, List<Materie> materieList) {
-        this.iCrudRepositoryClass.addStudentClass(name, materieList);
+        System.out.println(this.iCrudRepositoryClass.addStudentClass(name, materieList));
     }
 
     public List<Materie> findListMaterie(String name) {
