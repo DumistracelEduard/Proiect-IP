@@ -7,6 +7,7 @@ import {ProfessorPageComponent} from './components/professor-page/professor-page
 import {StudentPageComponent} from './components/student-page/student-page.component';
 import {ChangePassw1Component} from './components/change-passw1/change-passw1.component';
 import {ChangePassw2Component} from './components/change-passw2/change-passw2.component';
+import {GradesPageComponent} from './components/grades-page/grades-page.component';
 
 const routes: Routes = [
     {path: "", redirectTo: "login", pathMatch: "full"},
@@ -15,7 +16,8 @@ const routes: Routes = [
     {path: "professor", component: ProfessorPageComponent},
     {path: "student", component: StudentPageComponent},
     {path: "change_passw1", component: ChangePassw1Component},
-    {path: "change_passw2", component: ChangePassw2Component}
+    {path: "change_passw2", component: ChangePassw2Component},
+    {path: "grades", component: GradesPageComponent}
 ];
 
 @NgModule({

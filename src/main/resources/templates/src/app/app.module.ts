@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {StudentPageComponent} from "./components/student-page/student-page.component";
+import { GradesPageComponent } from './components/grades-page/grades-page.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import {StudentPageComponent} from "./components/student-page/student-page.compo
         ProfessorPageComponent,
         ChangePassw1Component,
         ChangePassw2Component,
-        StudentPageComponent
+        StudentPageComponent,
+        GradesPageComponent
     ],
     imports: [
         BrowserModule,
