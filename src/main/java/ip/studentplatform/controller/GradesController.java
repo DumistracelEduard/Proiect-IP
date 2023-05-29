@@ -109,5 +109,9 @@ public class GradesController {
         return this.gradesService.getGradeForAdmin(student);
     }
 
-
+    @GetMapping("/getGradesForTabel")
+    public List<Grade> getGradesForTabel(Principal principal) {
+        Student student = (Student) this.userService.getUser(principal.getName());
+        return this.gradesService.getGrades(student);
+    }
 }

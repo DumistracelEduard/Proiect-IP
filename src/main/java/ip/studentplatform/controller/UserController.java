@@ -112,7 +112,7 @@ public class UserController {
                                     @RequestParam("username") String username,
                                     HttpServletRequest request) {
         User user = this.userService.getUser(username);
-        //todo in cazul in care userul nu exista
+
         String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         Random rnd = new Random();
         StringBuilder sb = new StringBuilder(8);

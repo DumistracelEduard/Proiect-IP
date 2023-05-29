@@ -26,4 +26,7 @@ public interface GradesCrudRepository extends CrudRepository<Grade, Integer>, IC
 
     @Query("SELECT g FROM Grade g WHERE g.student=:student and g.approvedGrade=false")
     List<Grade> getGradeForAdmin(Student student);
+
+    @Query("SELECT g FROM Grade g WHERE g.student=:student")
+    List<Grade> getGrades(Student student);
 }

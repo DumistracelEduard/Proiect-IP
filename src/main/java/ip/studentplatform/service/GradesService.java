@@ -29,4 +29,8 @@ public class GradesService {
     public List<Grade> getGradeForAdmin(Student student) {
         return this.iCrudRepositoryGrades.getGradeForAdmin(student);
     }
+
+    public List<Grade> getGrades(Student student) {
+        return this.iCrudRepositoryGrades.getGrades(student);
+    }
 }

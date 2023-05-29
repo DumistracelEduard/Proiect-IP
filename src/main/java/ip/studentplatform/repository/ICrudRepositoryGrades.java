@@ -13,4 +13,6 @@ public interface ICrudRepositoryGrades {
     int updateGrade(int grade, Student student, Materie materie);
 
     List<Grade> getGradeForAdmin(Student student);
+    List<Grade> getGrades(Student student);
+
 }
