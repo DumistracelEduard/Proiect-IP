@@ -73,7 +73,7 @@ public class ClassController {
     public void putFlagGrade(@RequestParam("materie") String nameMaterie, Principal principal) {
         Student student = (Student) this.userService.getUser(principal.getName());
         Materie materie = this.classService.getMaterie(nameMaterie);
-        this.classService.addFlagGrade(student, materie, true);
+        this.classService.addFlagGrade(student, materie, false);
         List<Admin> adminList = this.userService.getListAdmin();
         for(Admin admin: adminList) {
             senderService.sendSimpleEmail(admin.getEmail(),
