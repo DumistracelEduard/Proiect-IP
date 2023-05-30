@@ -158,6 +158,18 @@ button[type=Trimitere] {
     font-size: medium;
 }
 
+#Buton-update-nota {
+    margin-left: 10%;
+    width: 170px;
+    background-color: #0441aa;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: medium;
+}
+
 #Buton-lista {
     width: 150px;
     background-color: #0441aa;
