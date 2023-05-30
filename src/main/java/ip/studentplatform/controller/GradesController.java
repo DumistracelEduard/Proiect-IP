@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Array;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -113,5 +114,35 @@ public class GradesController {
     public List<Grade> getGradesForTabel(Principal principal) {
         Student student = (Student) this.userService.getUser(principal.getName());
         return this.gradesService.getGrades(student);
+    }
+
+    @GetMapping("/getGradesByMaterie")
+    public List<StudentGrades> listStudentGrades(@RequestParam("materie") String materie) {
+        Materie materie1 = this.classService.getMaterie(materie);
+        List<Grade> grades = this.gradesService.getGradesByMaterie(materie1);
+
+        List<StudentGrades> studentGradesList = new ArrayList<>();
+        for (Grade grade: grades) {
+            StudentGrades studentGrades = new StudentGrades();
+            studentGrades.grade = grade.getGrade();
+            studentGrades.firstName = grade.getStudent().getFirstName();
+            studentGrades.lastName = grade.getStudent().getLastName();
+            studentGradesList.add(studentGrades);
+        }
+
+        return studentGradesList;
+    }
+
+    @PutMapping("/approvedMultiple")
+    public void approvedGrade(@RequestParam("firstName") List<String> firstName,
+                              @RequestParam("lastName") List<String> lastName,
+                              @RequestParam("materie") String materie) {
+        for(int i = 0; i < firstName.size(); ++i) {
+            this.gradesService.approvedGrades(firstName.get(i), lastName.get(i), materie);
+            User user = (User) this.userService.getStudent(firstName.get(i), lastName.get(i));
+            senderService.sendSimpleEmail(user.getEmail(),
+                    "StudentPlatform",
+                    "Grades approved for " + materie + "\n");
+        }
     }
 }

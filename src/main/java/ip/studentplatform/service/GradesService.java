@@ -33,4 +33,8 @@ public class GradesService {
     public List<Grade> getGrades(Student student) {
         return this.iCrudRepositoryGrades.getGrades(student);
     }
+
+    public List<Grade> getGradesByMaterie(Materie materie) {
+        return this.iCrudRepositoryGrades.getGradesByMaterie(materie);
+    }
 }

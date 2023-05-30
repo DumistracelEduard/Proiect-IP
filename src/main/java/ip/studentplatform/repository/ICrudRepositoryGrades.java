@@ -14,5 +14,5 @@ public interface ICrudRepositoryGrades {
 
     List<Grade> getGradeForAdmin(Student student);
     List<Grade> getGrades(Student student);
-
+    List<Grade> getGradesByMaterie(Materie materie);
 }

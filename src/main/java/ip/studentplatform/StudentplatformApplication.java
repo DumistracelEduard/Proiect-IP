@@ -29,7 +29,7 @@ public class StudentplatformApplication {
 		mailSender.setPort(587);
 
 		mailSender.setUsername("eduard.costin2001@gmail.com");
-		mailSender.setPassword("irjrthrnwxzwkagg");
+		mailSender.setPassword("cxsutybappstjkag");
 
 		Properties props = mailSender.getJavaMailProperties();
 		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
