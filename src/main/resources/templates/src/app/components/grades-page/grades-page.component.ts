@@ -143,11 +143,9 @@ export class GradesPageComponent {
 
     flagGrade(nameMaterie: string) {
         const formData = new FormData();
-        formData.append("firstName", this.firstName);
-        formData.append("lastName", this.lastName);
         formData.append("materie", nameMaterie);
 
-        this.http.put("http://localhost:8082/Grades/approvedGrades", formData).subscribe({
+        this.http.put("http://localhost:8082/class/addFlag", formData).subscribe({
             next: (response) => {
                 console.log(response);
                 this.showSnackbar('Notă marcata.', 'Ok', 5000);
