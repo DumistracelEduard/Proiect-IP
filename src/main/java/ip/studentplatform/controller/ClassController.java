@@ -81,9 +81,11 @@ public class ClassController {
                     "Student " + student.getFirstName() + " " + student.getLastName() + " flag Grade " + nameMaterie);
         }
         Professor professor = materie.getProfessor();
-        senderService.sendSimpleEmail(professor.getEmail(),
-                "Flag Grade",
-                "Student " + student.getFirstName() + " " + student.getLastName() + " flag Grade " + nameMaterie);
+        if(professor != null) {
+            senderService.sendSimpleEmail(professor.getEmail(),
+                    "Flag Grade",
+                    "Student " + student.getFirstName() + " " + student.getLastName() + " flag Grade " + nameMaterie);
+        }
     }
 
     @GetMapping("/getMaterieName")
