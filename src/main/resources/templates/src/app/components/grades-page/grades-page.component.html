@@ -37,7 +37,42 @@
     <img id="image" src="./assets/poli_student.jpg">
 </div>
 
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Materie</th>
+                <th scope="col">Nota</th>
+                <th scope="col">Flag</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of grades">
+                <td>{{ item.nameMaterie }}</td>
+                <td>{{ item.grade }}</td>
+                <td>
+                    <button id="table_button" type="button" (click)="flagGrade(item.nameMaterie)">
+                        <img id="image_button" src="./assets/second_button.png" class="btn btn-success">
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
+<div class="cal-modal-container">
+    <h4>Structura anului scolar:</h4>
+    <div class="cal-modal">
+        <h4>UPCOMING EVENTS</h4>
+        <div id="calendar">
+            <div class="placeholder"></div>
+            <div class="calendar-events">
+            </div>
+        </div>
+    </div>
+</div>
 
 <img id="image_stud" src="./assets/student_profile.png">
 

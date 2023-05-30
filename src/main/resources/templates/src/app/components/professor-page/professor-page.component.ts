@@ -110,6 +110,9 @@ export class ProfessorPageComponent {
         formData.append('lastName', lastNameList);
         formData.append('materie', subject);
 
+        console.log(firstNameList)
+        console.log(lastNameList)
+
         let url = 'http://localhost:8082/Grades/addGradeMultiple';
 
         this.http.put(url, formData)
