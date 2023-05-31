@@ -126,19 +126,18 @@ export class GradesPageComponent {
             this.calendar.render();
         }
 
+
+
         this.getName()
 
         this.http.get<GradeObject[]>('http://localhost:8082/Grades/getGradesForTabel').subscribe((data: GradeObject[]) => {
             for (const item of data) {
                 this.grades.push(item);
-                console.log(item)
+                this.averageGrade += item.grade;
+                console.log(item.grade)
             }
+            this.averageGrade /= this.grades.length;
         });
-
-        for (const grade of this.grades) {
-            this.averageGrade += grade.grade;
-        }
-        this.averageGrade /= this.grades.length;
     }
 
     showSnackbar(content: string, action: string, duration: number) {

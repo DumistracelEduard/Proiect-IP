@@ -94,6 +94,12 @@ table {
     /*left: 20%;*/
     border-collapse: collapse; /* make the table borders collapse to each other */
     width: 100%;
+
+}
+
+.row {
+    overflow-y: auto;
+    height: 500px;
 }
 
 .container td, tr{
