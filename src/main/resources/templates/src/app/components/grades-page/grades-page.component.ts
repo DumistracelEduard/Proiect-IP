@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -7,20 +7,23 @@ import {Calendar} from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 
 @Component({
-  selector: 'app-grades-page',
-  templateUrl: './grades-page.component.html',
-  styleUrls: ['./grades-page.component.css']
+    selector: 'app-grades-page',
+    templateUrl: './grades-page.component.html',
+    styleUrls: ['./grades-page.component.css']
 })
 export class GradesPageComponent {
     strings: string[] = [];
     grades: GradeObject[] = [];
-    name:string = '';
+    name: string = '';
     formGrades: FormGroup;
     calendar!: Calendar;
     firstName: string = '';
     lastName: string = '';
 
     subject_names: { [key: number]: string } = {};
+
+    averageGrade: number = 0;
+
     constructor(public fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {
         this.formGrades = this.fb.group({
             firstName: [''],
@@ -39,8 +42,8 @@ export class GradesPageComponent {
         );
     }
 
-    ngOnInit() : void {
-        var i:number;
+    ngOnInit(): void {
+        var i: number;
         const calendarEl = document.getElementById('calendar');
         if (calendarEl) {
             const events: { title: string; date: string }[] = [];
@@ -128,8 +131,14 @@ export class GradesPageComponent {
         this.http.get<GradeObject[]>('http://localhost:8082/Grades/getGradesForTabel').subscribe((data: GradeObject[]) => {
             for (const item of data) {
                 this.grades.push(item);
+                console.log(item)
             }
         });
+
+        for (const grade of this.grades) {
+            this.averageGrade += grade.grade;
+        }
+        this.averageGrade /= this.grades.length;
     }
 
     showSnackbar(content: string, action: string, duration: number) {
@@ -141,7 +150,33 @@ export class GradesPageComponent {
         });
     }
 
-    flagGrade(nameMaterie: string) {
+    sortGradesDescending() {
+        let i, j;
+        for (i = 0; i < this.grades.length - 1; ++i) {
+            for (j = i + 1; j < this.grades.length; ++j) {
+                if (this.grades[i].grade < this.grades[j].grade) {
+                    let aux = this.grades[i].grade;
+                    this.grades[i].grade = this.grades[j].grade;
+                    this.grades[j].grade = aux;
+                }
+            }
+        }
+    }
+
+    sortGradesAscending() {
+        let i, j;
+        for (i = 0; i < this.grades.length - 1; ++i) {
+            for (j = i + 1; j < this.grades.length; ++j) {
+                if (this.grades[i].grade > this.grades[j].grade) {
+                    let aux = this.grades[i].grade;
+                    this.grades[i].grade = this.grades[j].grade;
+                    this.grades[j].grade = aux;
+                }
+            }
+        }
+    }
+
+    flagGrade(nameMaterie : string) {
         const formData = new FormData();
         formData.append("materie", nameMaterie);
 

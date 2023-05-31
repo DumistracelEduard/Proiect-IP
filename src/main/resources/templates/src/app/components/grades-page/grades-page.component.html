@@ -24,13 +24,17 @@
     </h1>
     <h3>
         Platforma catalog online<br>
-        <!-- <div>Student {{ name }}</div> -->
-        <div>Student</div>
+         <div>Student {{ name }}</div>
+<!--        <div>Student</div>-->
     </h3>
+
     <h2>
-        Catalog:
+        Sortează:
+        <button class="sort" type="button" (click)="sortGradesAscending()">crescător</button>
+        <button class="sort" type="button" (click)="sortGradesDescending()">descrescător</button>
     </h2>
 </div>
+
 
 
 <div class="image">
@@ -60,6 +64,10 @@
             </tbody>
         </table>
     </div>
+</div>
+
+<div id="avg">
+    Media generală: {{averageGrade}}
 </div>
 
 <div class="cal-modal-container">
