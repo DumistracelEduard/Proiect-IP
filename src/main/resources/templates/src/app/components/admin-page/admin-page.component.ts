@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {GradeObject} from "../GradeObject";
+import {StudentGradeObject} from "../StudentGradeObject";
 
 @Component({
     selector: 'app-admin-page',
@@ -14,7 +14,8 @@ import {GradeObject} from "../GradeObject";
 export class AdminPageComponent {
 
     strings: string[] = [];
-    grades: GradeObject[] = [];
+    selectedSubject: string = '';
+    grades: StudentGradeObject[] = [];
     form: FormGroup;
     formGrades: FormGroup;
 
@@ -31,8 +32,7 @@ export class AdminPageComponent {
         });
 
         this.formGrades = this.fb.group({
-            firstName: [''],
-            lastName: [''],
+            subject: [''],
         });
     }
 
@@ -54,26 +54,37 @@ export class AdminPageComponent {
         return false
     }
 
-    getGradesByUser() {
-        this.firstName = this.formGrades.get('firstName')!.value;
-        this.lastName = this.formGrades.get('lastName')!.value;
+    // getGradesByUser() {
+    //     this.firstName = this.formGrades.get('firstName')!.value;
+    //     this.lastName = this.formGrades.get('lastName')!.value;
+    //
+    //     const params1 = new HttpParams()
+    //         .set('firstName', this.firstName)
+    //         .set('lastName', this.lastName);
+    //
+    //     this.http.get<GradeObject[]>('http://localhost:8082/Grades/getGradesForAdmin', {params: params1}).subscribe((data: GradeObject[]) => {
+    //         for (const item of data) {
+    //             this.grades.push(item);
+    //         }
+    //     });
+    // }
 
-        const params1 = new HttpParams()
-            .set('firstName', this.firstName)
-            .set('lastName', this.lastName);
+    getGradesByMaterie() {
+        this.selectedSubject = this.formGrades.get('subject')!.value;
+        const params1 = new HttpParams().set('materie', this.selectedSubject);
 
-        this.http.get<GradeObject[]>('http://localhost:8082/Grades/getGradesForAdmin', {params: params1}).subscribe((data: GradeObject[]) => {
+        this.http.get<StudentGradeObject[]>('http://localhost:8082/Grades/getGradesByMaterie', {params: params1}).subscribe((data: StudentGradeObject[]) => {
             for (const item of data) {
                 this.grades.push(item);
             }
         });
     }
 
-    approveGrade(nameMaterie: string) {
+    approveGrade(firstname: string, lastname: string) {
         const formData = new FormData();
-        formData.append("firstName", this.firstName);
-        formData.append("lastName", this.lastName);
-        formData.append("materie", nameMaterie);
+        formData.append("firstName", firstname);
+        formData.append("lastName", lastname);
+        formData.append("materie", this.selectedSubject);
 
         this.http.put("http://localhost:8082/Grades/approvedGrades", formData).subscribe({
             next: (response) => {
@@ -90,7 +101,7 @@ export class AdminPageComponent {
     ngOnInit() {
         this.http.get<string[]>('http://localhost:8082/class/getMaterie').subscribe(data => {
             this.strings = data;
-            console.log(this.strings);
+            // console.log(this.strings);
         });
     }
 
@@ -119,7 +130,7 @@ export class AdminPageComponent {
         const role = this.form.get('role')!.value;
         const subject = this.form.get('subject')!.value;
 
-        console.log(username + " " + role + " " + subject);
+        // console.log(username + " " + role + " " + subject);
 
         if (username != "" && subject != "") {
             formData.append('username', username);
@@ -132,7 +143,7 @@ export class AdminPageComponent {
                 url = url.concat('addProfessorToClass');
             }
 
-            console.log(url);
+            // console.log(url);
 
             this.http.post(url, formData)
                 .subscribe({
