@@ -126,8 +126,6 @@ export class GradesPageComponent {
             this.calendar.render();
         }
 
-
-
         this.getName()
 
         this.http.get<GradeObject[]>('http://localhost:8082/Grades/getGradesForTabel').subscribe((data: GradeObject[]) => {
@@ -154,9 +152,9 @@ export class GradesPageComponent {
         for (i = 0; i < this.grades.length - 1; ++i) {
             for (j = i + 1; j < this.grades.length; ++j) {
                 if (this.grades[i].grade < this.grades[j].grade) {
-                    let aux = this.grades[i].grade;
-                    this.grades[i].grade = this.grades[j].grade;
-                    this.grades[j].grade = aux;
+                    let aux = this.grades[i];
+                    this.grades[i] = this.grades[j];
+                    this.grades[j] = aux;
                 }
             }
         }
@@ -167,9 +165,9 @@ export class GradesPageComponent {
         for (i = 0; i < this.grades.length - 1; ++i) {
             for (j = i + 1; j < this.grades.length; ++j) {
                 if (this.grades[i].grade > this.grades[j].grade) {
-                    let aux = this.grades[i].grade;
-                    this.grades[i].grade = this.grades[j].grade;
-                    this.grades[j].grade = aux;
+                    let aux = this.grades[i];
+                    this.grades[i] = this.grades[j];
+                    this.grades[j] = aux;
                 }
             }
         }
