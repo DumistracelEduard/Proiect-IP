@@ -23,7 +23,7 @@
 
 
 <div id="student_text_box">
-    <form [formGroup]="form1" (ngSubmit)="addGrade()">
+    <form [formGroup]="form1" (ngSubmit)="addGrade($event.submitter.id)">
         <div class="field">
             Nume<span class="mandatory">*</span>
         </div>

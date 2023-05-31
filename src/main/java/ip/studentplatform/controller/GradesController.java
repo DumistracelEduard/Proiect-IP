@@ -90,7 +90,7 @@ public class GradesController {
     public void updateGrade(@RequestParam("grade") int grade,
                             @RequestParam(name = "firstName") String firstName,
                             @RequestParam(name = "lastName") String lastName,
-                            @RequestParam(name = "nameMaterie") String nameMaterie) {
+                            @RequestParam(name = "materie") String nameMaterie) {
         Materie materie1 = this.classService.getMaterie(nameMaterie);
         Student student = this.userService.getStudent(firstName, lastName);
         this.gradesService.updateGrade(grade, student, materie1);

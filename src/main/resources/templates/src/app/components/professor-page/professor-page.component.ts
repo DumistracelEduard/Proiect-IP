@@ -128,7 +128,7 @@ export class ProfessorPageComponent {
             });
     }
 
-    addGrade() {
+    addGrade(event : MouseEvent) : void {
         const formData: any = new FormData();
 
         const firstname = this.form1.get('firstName')!.value;
@@ -144,7 +144,11 @@ export class ProfessorPageComponent {
             formData.append('lastName', lastname);
             formData.append('materie', subject);
 
+
             let url = 'http://localhost:8082/Grades/addGrade';
+            if (event.toString() == "Buton-update-nota") {
+                url = 'http://localhost:8082/Grades/updateGrade';
+            }
 
             this.http.put(url, formData)
                 .subscribe({
@@ -159,6 +163,38 @@ export class ProfessorPageComponent {
                 });
         }
     }
+
+    // updateGrade() {
+    //     const formData: any = new FormData();
+    //
+    //     const firstname = this.form1.get('firstName')!.value;
+    //     const lastname = this.form1.get('lastName')!.value;
+    //     const grade = this.form1.get('grade')!.value;
+    //     const subject = this.form1.get('materie')!.value;
+    //
+    //     console.log(firstname + " " + lastname + " " + subject + " " + grade);
+    //
+    //     if (firstname != "" && subject != "") {
+    //         formData.append('grade', grade);
+    //         formData.append('firstName', firstname);
+    //         formData.append('lastName', lastname);
+    //         formData.append('nameMaterie', subject);
+    //
+    //         let url = 'http://localhost:8082/Grades/updateGrade';
+    //
+    //         this.http.put(url, formData)
+    //             .subscribe({
+    //                 next: (response) => {
+    //                     console.log(response);
+    //                     this.showSnackbar("Nota " + grade + " actualizată studentului " + firstname + " " + lastname, 'Ok', 5000);
+    //                 },
+    //                 error: (error) => {
+    //                     console.log(error);
+    //                     this.showSnackbar("EROARE: Studentul " + firstname + " " + lastname + " are deja notă la materia " + subject, 'Ok', 5000);
+    //                 },
+    //             });
+    //     }
+    // }
 
     showCheckboxes() {
         const checkboxes = document.getElementById("checkboxes");
