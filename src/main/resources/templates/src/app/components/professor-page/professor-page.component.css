@@ -137,6 +137,8 @@ button[type=Trimitere] {
     left: 60%;
 }
 
+
+
 .selectBox select {
     width: 100%;
     font-weight: bold;
@@ -181,15 +183,36 @@ button[type=Trimitere] {
     font-size: medium;
 }
 
+#Buton-salvare {
+    position: absolute;
+    padding: 2px 20px;
+    left: 82%;
+    border-radius: 1px;
+    top: 81%;
+    border: 0px #0441aa solid;
+    background-color: #0441aa;
+    width: 13%;
+    outline : #0441aa solid 22px;
+    font-size: medium;
+    color: white;
+    cursor: pointer;
+}
+
+.selectAllBox {
+    position: absolute;
+    top: 80%;
+    left: 47%;
+}
+
 #Buton-select-all {
-    width: 100px;
     background-color: #0441aa;
     color: white;
-    padding: 2px 2px;
+    padding: 12px 40px;
     border: none;
-    border-radius: 2px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: medium;
+
     margin-left: 75%;
     margin-top : -5%;
 }
@@ -238,20 +261,7 @@ button[type=Trimitere] {
     font-size: medium;
 }
 
-#Buton-salvare {
-    position: absolute;
-    padding: 2px 20px;
-    left: 82%;
-    border-radius: 1px;
-    top: 81%;
-    border: 0px #0441aa solid;
-    background-color: #0441aa;
-    width: 13%;
-    outline : #0441aa solid 22px;
-    font-size: medium;
-    color: white;
-    cursor: pointer;
-}
+
 
 
 
@@ -264,6 +274,7 @@ button[type=Trimitere] {
     top: 57%;
     background-color: #ebeae7;
     margin-left: -4%;
+    overflow-y: auto;
 }
 
 #checkboxes label {
