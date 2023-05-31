@@ -39,8 +39,6 @@ export class AdminPageComponent {
     showSnackbar(content: string, action: string, duration: number) {
         this.snackBar.open(content, action, {
             duration: duration,
-            verticalPosition: 'bottom',
-            horizontalPosition: 'left',
             panelClass: ['snackbar']
         });
     }
@@ -53,21 +51,6 @@ export class AdminPageComponent {
         this.showSnackbar("Acest camp permite doar litere.", "Ok", 4000);
         return false
     }
-
-    // getGradesByUser() {
-    //     this.firstName = this.formGrades.get('firstName')!.value;
-    //     this.lastName = this.formGrades.get('lastName')!.value;
-    //
-    //     const params1 = new HttpParams()
-    //         .set('firstName', this.firstName)
-    //         .set('lastName', this.lastName);
-    //
-    //     this.http.get<GradeObject[]>('http://localhost:8082/Grades/getGradesForAdmin', {params: params1}).subscribe((data: GradeObject[]) => {
-    //         for (const item of data) {
-    //             this.grades.push(item);
-    //         }
-    //     });
-    // }
 
     getGradesByMaterie() {
         this.selectedSubject = this.formGrades.get('subject')!.value;

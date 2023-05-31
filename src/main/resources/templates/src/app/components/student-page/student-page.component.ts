@@ -130,8 +130,6 @@ export class StudentPageComponent implements OnInit {
     showSnackbar(content: string, action: string, duration: number) {
         this.snackBar.open(content, action, {
             duration: duration,
-            verticalPosition: 'bottom',
-            horizontalPosition: 'left',
             panelClass: ['snackbar']
         });
     }

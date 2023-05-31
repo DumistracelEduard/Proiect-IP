@@ -12,6 +12,10 @@ html {
   background-size: 100% 100%;
 }
 .snackbar {
-    opacity: 0;
+    position: absolute;
+    color: white;
+    background-color: black;
+    width: 400px;
+    /*left: 500px;*/
 }
 
