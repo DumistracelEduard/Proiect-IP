@@ -1,6 +1,6 @@
 export interface StudentGradeObject {
-    firstname: string,
-    lastname: string,
+    firstName: string,
+    lastName: string,
     grade: number,
 }
 
